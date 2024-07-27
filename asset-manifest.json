@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Frontend_React_Baby_Pets_Adoption_App/static/css/main.ef77f4fa.css",
-    "main.js": "/Frontend_React_Baby_Pets_Adoption_App/static/js/main.e3a757ea.js",
+    "main.css": "/Frontend_React_Baby_Pets_Adoption_App/static/css/main.49c63448.css",
+    "main.js": "/Frontend_React_Baby_Pets_Adoption_App/static/js/main.770edd26.js",
     "static/js/453.dc10688a.chunk.js": "/Frontend_React_Baby_Pets_Adoption_App/static/js/453.dc10688a.chunk.js",
     "static/media/dog_face.png": "/Frontend_React_Baby_Pets_Adoption_App/static/media/dog_face.7569e1d109530dcefe35.png",
     "static/media/cat_face.png": "/Frontend_React_Baby_Pets_Adoption_App/static/media/cat_face.47c216cd48593729524e.png",
     "index.html": "/Frontend_React_Baby_Pets_Adoption_App/index.html",
-    "main.ef77f4fa.css.map": "/Frontend_React_Baby_Pets_Adoption_App/static/css/main.ef77f4fa.css.map",
-    "main.e3a757ea.js.map": "/Frontend_React_Baby_Pets_Adoption_App/static/js/main.e3a757ea.js.map",
+    "main.49c63448.css.map": "/Frontend_React_Baby_Pets_Adoption_App/static/css/main.49c63448.css.map",
+    "main.770edd26.js.map": "/Frontend_React_Baby_Pets_Adoption_App/static/js/main.770edd26.js.map",
     "453.dc10688a.chunk.js.map": "/Frontend_React_Baby_Pets_Adoption_App/static/js/453.dc10688a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef77f4fa.css",
-    "static/js/main.e3a757ea.js"
+    "static/css/main.49c63448.css",
+    "static/js/main.770edd26.js"
   ]
 }
