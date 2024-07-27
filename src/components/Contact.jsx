@@ -16,7 +16,6 @@ const Contact = () => {
                 <TextComponent text="We’re here to help! Whether you have questions about adopting a pet, need support with our services, or want to give us feedback, you can reach out to us using the following methods." />
                 <Heading tagName="h3" id="getIn_touch_heading" text="Get in Touch" />
                 <Row>
-
                     <Heading tagName="h5" id="getIn_touch_heading" text="Email Us" />
                     <ul>
                         <li>

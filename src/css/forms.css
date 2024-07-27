@@ -52,7 +52,6 @@ input:-webkit-autofill,
 #reg_form label,
 #login_form {
     font-size: 14px;
-    margin-left: 15px;
 }
 
 #reg_form label {
@@ -154,6 +153,7 @@ input:-webkit-autofill,
 }
 
 #login_form input {
+    font-size: 15px;
     width: 70%;
     font-family: "Roboto";
     font-weight: 400;

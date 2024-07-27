@@ -27,7 +27,7 @@ const Header = () => {
 
     return (
         <Navbar id="header_navbar" collapseOnSelect sticky="top" expand="lg" className="">
-            <Container>
+            <Container className="pe-3">
                 <Navbar.Brand id="logo_nav" href="/">
                     <Container id="logo_nav_holder" />
                 </Navbar.Brand>

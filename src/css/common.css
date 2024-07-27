@@ -205,7 +205,6 @@ h6 {
 }
 
 #header_navbar .dropdown-menu {
-    text-align: center;
     min-width: 250px;
 }
 
@@ -270,13 +269,13 @@ h6 {
 
 /****** HEADER LOGIN FORM */
 #login_wrapper {
-    min-width: 500px;
-    max-width: 650px;
+    width: 550px;
     height: 370px;
     margin: 0px auto;
     padding-top: 40px;
     padding-bottom: 20px;
 }
+
 
 #login_action_holder {
     margin-top: 30px;
@@ -300,17 +299,18 @@ h6 {
     margin-bottom: 10px;
 }
 
+/**** HEADER LOGIN FORM */
+#login_form input {
+    width: 100%;
+
+}
+
 #login_form label {
     margin-top: 15px;
 }
 
-#login_form input {
-    font-size: 15px;
-    letter-spacing: 0.5px;
-}
-
-#login_submit_button {
-    width: 70%;
+#login_action_holder #login_submit_button {
+    width: 90%;
 }
 
 #login_message {
@@ -319,7 +319,6 @@ h6 {
     color: #a52a2a;
     margin-top: 20px;
 }
-
 
 /******* FOOTER   ****/
 #footer_navbar {
@@ -439,7 +438,6 @@ h6 {
 
     #header_navbar .navbar-nav a {
         margin-right: 0px;
-
     }
 
     #notification_badge_wrapper {
@@ -456,25 +454,78 @@ h6 {
         font-weight: 700;
     }
 
-    /***************** HEADER */
-    #header_navbar .dropdown-menu {
-        text-align: center
+    /****** HEADER LOGIN FORM */
+    #header_navbar .navbar-nav a {
+        text-align: center;
+        font-size: 20px;
+        margin-right: 20px;
+        margin: 0 auto;
+        letter-spacing: 1px;
+    }
+
+    #header_navbar #signIn_button {
+        text-align: center;
+        font-size: 20px;
+        color: #050505;
+        border-bottom: solid 2px transparent;
+        background-color: transparent;
+        border-radius: 0;
+        font-weight: bold;
+    }
+
+    #header_navbar #signIn_button:hover {
+        background-color: transparent;
+        border-bottom: solid 2px #050505;
+        border-radius: 0;
+    }
+
+    #login_wrapper {
+        width: 95%;
+        height: 350px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+
+
+    #login_container {
+        width: inherit;
+    }
+
+    #header_navbar div[aria-labelledby="signIn_button"] {
+        position: absolute;
+        right: 15px;
+        top: 60px;
+        margin: 0 auto;
+        border-color: #5A4633;
+        width: 95%
+    }
+
+    #login_message {
+        padding-left: 40px;
+        font-size: 14px;
+        color: #a52a2a;
+        margin-top: 20px;
+    }
+
+    #header_navbar .navbar-nav a {
+        margin-right: 0px;
+    }
+
+    #header_navbar .navbar-nav #account_dropdown {
+        text-align: end;
     }
 
     #header_navbar .dropdown-menu a {
         margin: 0 auto;
-        text-align: center;
-        width: 100%;
+        text-align: center
     }
 
-    #header_navbar .dropdown-menu {
-        text-align: center;
-        width: 100%;
+    #sign_in_holder {
+        width: 90%;
     }
 
-    #home_link_nav,
-    #account_dropdown {
-        text-align: end;
+    #login_form {
+        width: 90%;
     }
 
     /******* FOOTER   ****/
@@ -541,6 +592,76 @@ h6 {
 
 @media (min-width: 576px) and (max-width: 776px) {
 
+    /****** HEADER LOGIN FORM */
+    #header_navbar .navbar-nav a {
+        text-align: center;
+        font-size: 20px;
+        margin-right: 20px;
+        margin: 0 auto;
+        letter-spacing: 1px;
+    }
+
+    #header_navbar #signIn_button {
+        text-align: center;
+        font-size: 20px;
+        color: #050505;
+        border-bottom: solid 2px transparent;
+        background-color: transparent;
+        border-radius: 0;
+        font-weight: bold;
+    }
+
+    #header_navbar #signIn_button:hover {
+        background-color: transparent;
+        border-bottom: solid 2px #050505;
+        border-radius: 0;
+
+    }
+
+    #login_wrapper {
+        width: 95%;
+        height: 350px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+
+    #login_container {
+        width: inherit;
+    }
+
+    #header_navbar div[aria-labelledby="signIn_button"] {
+        position: absolute;
+        right: 15px;
+        top: 60px;
+        margin: 0 auto;
+        border-color: #5A4633;
+        width: 95%
+    }
+
+    #login_message {
+        padding-left: 40px;
+        font-size: 14px;
+        color: #a52a2a;
+        margin-top: 20px;
+    }
+
+    #header_navbar .navbar-nav a {
+        margin-right: 0px;
+    }
+
+    #header_navbar .navbar-nav #account_dropdown {
+        text-align: end;
+    }
+
+    #header_navbar .dropdown-menu a {
+        margin: 0 auto;
+        text-align: center
+    }
+
+    #sign_in_holder {
+        width: 90%;
+    }
+
     /********** ABOUT PAGE */
     #contact_container,
     #dataDeletion_container,
@@ -555,12 +676,33 @@ h6 {
         margin: 140px auto;
         color: #5A4633;
     }
+
 }
 
 
 @media (min-width: 350px) and (max-width: 576px) {
+
+    #adoption_info_wrapper #adoption_info_holder p,
+    #adoption_info_wrapper #adoption_info_holder ul,
+    #footer_navbar a,
+    #header_navbar .navbar-nav a {
+        font-size: 18px;
+    }
+
+    p,
+    a,
+    ul {
+
+        font-size: 18px;
+    }
+
     #notifications_space {
         margin-top: 30px;
+    }
+
+    #sign_in_holder {
+        margin: 40px auto 70px;
+        background-color: #6a5b48;
     }
 
     #sign_in_messsage {
@@ -638,6 +780,10 @@ h6 {
         padding-bottom: 20px;
     }
 
+    #login_container {
+        width: inherit;
+    }
+
     #header_navbar div[aria-labelledby="signIn_button"] {
         position: absolute;
         right: 15px;
@@ -645,15 +791,6 @@ h6 {
         margin: 0 auto;
         border-color: #5A4633;
         width: 95%
-    }
-
-    #sign_in_holder {
-        width: 95%;
-    }
-
-    #login_form input {
-        font-size: 15px;
-        width: 70%;
     }
 
     #login_message {
@@ -669,10 +806,6 @@ h6 {
 
     #header_navbar .navbar-nav #account_dropdown {
         text-align: end;
-    }
-
-    #header_navbar .dropdown-menu {
-        text-align: center
     }
 
     #header_navbar .dropdown-menu a {

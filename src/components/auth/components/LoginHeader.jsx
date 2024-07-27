@@ -132,9 +132,9 @@ const Login = () => {
                     {/* <Row >
                         <Heading tagName="h2" id="login_title" text="Login" />
                     </Row> */}
-                    <Row >
-                        <Form onSubmit={handleSubmit} id="login_form">
-                            <Row >
+                    <Row className="ps-0">
+                        <Form onSubmit={handleSubmit} id="login_form" className="ps-0">
+                            <Row className="ps-0">
                                 {/******** { email address } ********/}
                                 <Form.Group controlId="login_email">
                                     <Form.Label>Email Address</Form.Label>
@@ -150,7 +150,7 @@ const Login = () => {
 
                             </Row>
 
-                            <Row >
+                            <Row className="ps-0">
                                 {/******** { password } ********/}
                                 <Form.Group controlId="login_password">
                                     <Form.Label>Password</Form.Label>

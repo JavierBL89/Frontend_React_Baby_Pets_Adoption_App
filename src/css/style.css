@@ -233,6 +233,44 @@
 /*********************************     @media (min-width: 575px) and (max-width: 775px)  *******/
 @media (min-width: 575px) and (max-width: 775px) {
 
+    #hero_holder {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    #categories_wrapper #categories_holder {
+        width: 80%;
+    }
+
+    #categories_wrapper img {
+        width: 85%;
+        height: auto;
+        position: absolute;
+        z-index: -1;
+    }
+
+    #category_Puppies {
+        background-image: url("/public/assets/images/dog_face.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        /* margin-bottom: 17px; */
+        width: 183px;
+        height: 183px;
+        margin-top: 0;
+    }
+
+    #category_Kitties {
+        background-image: url("/public/assets/images/cat_face.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 183px;
+        height: 183px;
+        margin-top: 0;
+
+    }
+
     /** VERIFY ACOUNT*/
     #very_account_wrapper {
         width: 100%;
@@ -251,7 +289,6 @@
 
 /*********************************     @media (min-width: 356px) and (max-width: 575px)  *******/
 @media (min-width: 356px) and (max-width: 575px) {
-
 
     /****  COMMON  ***/
     #post_action_message_holder,
@@ -290,6 +327,7 @@
         width: 97%;
         height: auto;
         position: absolute;
+        bottom: 95px;
         z-index: -1;
     }
 
@@ -328,11 +366,11 @@
     }
 
     #adoption_info_wrapper #adoption_info_heading {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     #adoption_info_wrapper #adoption_info_container {
-        width: 95%;
+        width: 90%;
         margin: 0 auto;
     }
 
@@ -343,7 +381,7 @@
     }
 
     #adoption_info_wrapper h4 {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     /** VERIFY ACOUNT*/
