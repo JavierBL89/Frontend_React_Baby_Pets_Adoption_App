@@ -1,0 +1,368 @@
+/*
+* Primary:
+* Light Beige #F5EDE3
+* Dark Brown  #5A4633
+*
+*Secundary:
+* Soft Beige #DCC5A1
+* Tan #C19A6B
+* Dark Black #050505
+***/
+
+/************************************ PET CATEGORIES */
+#categories_wrapper {
+    margin-bottom: 350px;
+}
+
+
+#categories_wrapper #categories_holder {
+    width: 50%;
+}
+
+#hero_holder {
+    margin: 0 auto;
+    width: 800px;
+}
+
+#categories_wrapper img {
+    width: 800px;
+    height: auto;
+    position: absolute;
+    z-index: -1;
+}
+
+#category_Puppies {
+    background-image: url("/public/assets/images/dog_face.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* margin-bottom: 17px; */
+    width: 193px;
+    height: 193px;
+    margin-top: 50px;
+}
+
+#category_Kitties {
+    background-image: url("/public/assets/images/cat_face.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 193px;
+    height: 193px;
+    margin-top: 50px;
+
+}
+
+#categories_wrapper .category_tittle {
+    font-weight: bold;
+    color: #5A4633;
+
+}
+
+
+
+/*************** ADOPTION INFORMATION SECTION */
+
+#adoption_info_wrapper {
+    margin: 200px auto;
+}
+
+#adoption_info_wrapper #adoption_info_container {
+    width: 80%;
+}
+
+#adoption_info_wrapper #adoption_info_holder {
+    border: solid 1px #C19A6B;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#adoption_info_wrapper #adoption_info_holder p,
+#adoption_info_wrapper #adoption_info_holder ul {
+    font-size: 21px;
+}
+
+#adoption_info_wrapper #adoption_info_holder ul {
+    padding-left: 0;
+}
+
+#adoption_info_wrapper p,
+#adoption_info_wrapper ul {
+
+    color: #050505;
+    opacity: 0.8;
+    letter-spacing: 0.4px;
+}
+
+#adoption_info_wrapper ul li {
+    list-style-type: none;
+}
+
+/* Custom CSS to change bullet point color */
+#adoption_info_wrapper .bullet-point::before {
+    content: '• ';
+    color: #5A4633;
+    /* Change this to your desired bullet point color */
+    font-weight: bold;
+}
+
+
+#adoption_info_wrapper h4 {
+    color: #5A4633;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#adoption_info_wrapper #adoption_info_heading {
+    color: #5A4633;
+    padding-bottom: 40px;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: light;
+}
+
+#adoption_info_wrapper strong {
+    color: #5A4633;
+
+}
+
+
+/** VERIFY ACOUNT*/
+#very_account_wrapper {
+    width: 1400px;
+    min-height: 600px;
+}
+
+#very_account_wrapper #very_account_container {
+    width: 80%;
+    margin-top: 100px;
+    height: fit-content;
+    padding: 50px;
+    border: solid 1px #C19A6B;
+    border-radius: 10px;
+}
+
+#very_account_wrapper #very_account_container h2 {
+    color: #5A4633;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+#very_account_wrapper #very_account_container h3 {
+    color: #5A4633;
+    font-weight: 300;
+}
+
+@media (max-width: 1200px) {}
+
+@media (min-width: 992px) {}
+
+/************************************************* (min-width: 768px) and (max-width: 990px) ****/
+
+@media (min-width: 768px) and (max-width: 990px) {
+
+    /************************************ PET CATEGORIES */
+    #categories_wrapper {
+        margin-bottom: 350px;
+    }
+
+
+    #categories_wrapper #categories_holder {
+        width: 80%;
+    }
+
+    #hero_holder {
+        margin: 0 auto;
+        width: 700px;
+    }
+
+    #categories_wrapper img {
+        width: 700px;
+        height: auto;
+        position: absolute;
+        z-index: -1;
+    }
+
+    #category_Puppies {
+        background-image: url("/public/assets/images/dog_face.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        /* margin-bottom: 17px; */
+        width: 183px;
+        height: 183px;
+    }
+
+    #category_Kitties {
+        background-image: url("/public/assets/images/cat_face.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 183px;
+        height: 183px;
+    }
+
+
+    /*************** ADOPTION INFORMATION SECTION */
+
+    #adoption_info_wrapper {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    #adoption_info_wrapper #adoption_info_container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+
+    /** VERIFY ACOUNT*/
+    #very_account_wrapper {
+        width: 100%;
+        min-height: 600px;
+    }
+
+    #very_account_wrapper #very_account_container {
+        width: 90%;
+    }
+
+}
+
+/*********************************     @media (min-width: 575px) and (max-width: 775px)  *******/
+@media (min-width: 575px) and (max-width: 775px) {
+
+    /** VERIFY ACOUNT*/
+    #very_account_wrapper {
+        width: 100%;
+        min-height: 600px;
+    }
+
+    #very_account_wrapper #very_account_container {
+        width: 95%;
+        margin-top: 100px;
+        height: fit-content;
+        padding: 30px;
+        border: solid 1px #C19A6B;
+        border-radius: 10px;
+    }
+}
+
+/*********************************     @media (min-width: 356px) and (max-width: 575px)  *******/
+@media (min-width: 356px) and (max-width: 575px) {
+
+
+    /****  COMMON  ***/
+    #post_action_message_holder,
+    #notification_message_holder {
+        width: 98%;
+        min-height: 40px;
+        font-size: 17px;
+    }
+
+    #post_action_message_holder h6,
+    #notification_message_holder h6 {
+        font-size: 16px;
+    }
+
+    #post_action_message_wrapper #post_action_message_container,
+    #notification_message_container {
+        width: 95%;
+        padding: 15px 0 5px;
+    }
+
+    /************************************ PET CATEGORIES */
+    #categories_wrapper {
+        margin-bottom: 250px;
+    }
+
+    #categories_wrapper #categories_holder {
+        width: 85%;
+    }
+
+    #hero_holder {
+        margin: 20px auto 0;
+        width: 700px;
+    }
+
+    #categories_wrapper img {
+        width: 97%;
+        height: auto;
+        position: absolute;
+        z-index: -1;
+    }
+
+    #categories_wrapper #category_Puppies {
+        background-image: url("/public/assets/images/dog_face.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-top: 0;
+        width: 138px;
+        height: 138px;
+    }
+
+    #categories_wrapper #category_Kitties {
+        width: 80%;
+        height: 80%;
+        background-image: url("/public/assets/images/cat_face.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-top: 0;
+        width: 138px;
+        height: 138px;
+    }
+
+    #categories_wrapper .category_tittle {
+        font-size: 17px;
+    }
+
+
+    /*************** ADOPTION INFORMATION SECTION */
+
+    #adoption_info_wrapper {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    #adoption_info_wrapper #adoption_info_heading {
+        font-size: 1.6rem;
+    }
+
+    #adoption_info_wrapper #adoption_info_container {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    #adoption_info_wrapper .info_holder {
+        padding: 20px;
+        font-size: 20px;
+
+    }
+
+    #adoption_info_wrapper h4 {
+        font-size: 22px;
+    }
+
+    /** VERIFY ACOUNT*/
+    #very_account_wrapper {
+        width: 100%;
+        min-height: 600px;
+    }
+
+    #very_account_wrapper #very_account_container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #very_account_wrapper #very_account_container h2 {
+        font-size: 1.3rem;
+    }
+
+    #very_account_wrapper #very_account_container h3 {
+        font-size: 1.1rem;
+    }
+
+}

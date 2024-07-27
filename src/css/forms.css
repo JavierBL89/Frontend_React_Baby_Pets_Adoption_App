@@ -1,0 +1,623 @@
+/*
+* Primary:
+* Light Beige #F5EDE3
+* Dark Brown  #5A4633
+*
+*Secundary:
+* Soft Beige #DCC5A1
+* Tan #C19A6B
+* Dark Black #050505
+***/
+
+/*********************************************** COMMON FORM STUFF*/
+
+/***** Override autofill default style behavoir ****/
+/**
+* Took the code lines from the below link
+/* https://stackoverflow.com/questions/2338102/override-browser-form-filling-and-input-highlighting-with-html-css 
+*/
+input:-webkit-autofill,
+#login_form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px #ffffff inset;
+    /* Change the color to your own background color */
+    -webkit-text-fill-color: #000000;
+    -webkit-text-fill-backgorund-color: #FFFFF0;
+    -webkit-text-fill-font-size: 0.513rem;
+}
+
+.form-control:focus {
+    border-color: #C19A6B;
+    /* Change to your desired border color */
+    box-shadow: 0 0 5px #C19A6B;
+    /* Change to your desired shadow */
+    outline: none;
+    /* Remove the default outline */
+}
+
+#create_pet_wrapper,
+#register_form_wrapper {
+    min-height: fit-content;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#create_pet_container,
+#register_form_container,
+#register_form_wrapper>.row {
+    margin: 0 auto;
+    width: 80%;
+}
+
+#list_pet_form label,
+#reg_form label,
+#login_form {
+    font-size: 14px;
+    margin-left: 15px;
+}
+
+#reg_form label {
+    color: #C19A6B;
+}
+
+#list_pet_form label {
+    color: #5A4633;
+    font-weight: 500;
+}
+
+#create_pet_container .parents_info_holder,
+#register_form_wrapper #register_form_container {
+    padding: 15px;
+    border: 1px solid #C19A6B;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.form-control:focus,
+.form-control:active:autoc .form-control:active {
+    background: transparent;
+}
+
+/* Custom CSS to remove the background color of filled inputs */
+#login_form #login_email:valid {
+    background-color: transparent !important;
+}
+
+#reg_submit_button,
+#login_submit_button {
+    border-color: #5A4633;
+    letter-spacing: 0.5px;
+    font-weight: light;
+    margin-top: 20px;
+}
+
+#reg_submit_button:hover,
+#login_submit_button:hover {
+    background-color: #ffffff;
+    color: #5A4633;
+}
+
+#reg_submit_button,
+#login_submit_button {
+    background-color: #5A4633;
+    color: #F5EDE3;
+}
+
+/******************************************* REGISTRATION FORM */
+#reg_heading {
+    font-weight: 700;
+    color: #5A4633;
+}
+
+#register_form_wrapper .reg_form_details_holder {
+    margin-top: 7px;
+    margin-bottom: 7x;
+
+}
+
+#reg_form input,
+#personal_details_update_wrapper form input {
+    font-size: 14px;
+    font-weight: 300;
+    color: #5A4633;
+}
+
+#reg_form input::placeholder {
+    font-weight: 300;
+    color: #5A4633;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+#register_form_wrapper button[type="submit"] {
+    width: 43%;
+    margin: 30px auto;
+}
+
+
+/*** LOGIN PAGE*/
+#login_page_wrapper {
+    width: 1400px;
+    height: 600px;
+}
+
+#login_page_container {
+    margin: 100px auto;
+    width: 70%;
+    height: fit-content;
+    padding: 40px;
+    border: solid 1px #C19A6B;
+    border-radius: 10px;
+}
+
+#login_form label {
+    color: #C19A6B;
+}
+
+#login_form input {
+    width: 70%;
+    font-family: "Roboto";
+    font-weight: 400;
+    color: #5A4633;
+    letter-spacing: 0.8px;
+}
+
+#login_page_wrapper #login_page_action_holder {
+    margin-top: 50px;
+}
+
+#login_page_wrapper #forgot_password_holder {
+    margin-top: 10px;
+}
+
+#login_page_action_holder {
+    text-align: center;
+}
+
+#login_page_submit_button {
+    background-color: #5A4633;
+    color: #F5EDE3;
+    font-family: "Roboto";
+    font-weight: 700;
+    letter-spacing: 0.8;
+    border: solid 1px #5A4633;
+    width: 80%;
+}
+
+#login_page_submit_button:hover {
+    background-color: #F5EDE3;
+    color: #5A4633;
+    border: solid 1px #5A4633;
+}
+
+/**************************************** PET CREATION FORM******/
+
+#list_pet_form div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+#list_pet_form input {
+    height: 50px;
+    font-size: 14px;
+    width: 70%;
+}
+
+#personal_details_update_wrapper form input::placeholder,
+#reg_form input::placeholder,
+#list_pet_form ::placeholder {
+    font-size: 12px;
+    font-style: italic;
+    color: #5A4633;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+#list_pet_form .form-check-input {
+    height: 25px;
+    width: 25px;
+    margin-left: 15px;
+}
+
+#create_pet_wrapper .parents_info_wraper {
+    margin-top: 40px;
+    padding: 10px;
+}
+
+.parents_info_holder #pet_category_holder #pet_category_row {
+    margin: 0;
+}
+
+.parents_info_holder #pet_category_holder {
+    margin: 0;
+}
+
+.parents_info_holder #pet_birth_date_holder,
+.parents_info_holder #pet_birth_date_holder .row {
+    margin: 0;
+}
+
+#create_pet_wrapper h6 {
+    font-size: 22px;
+    margin-left: 15px;
+    margin-bottom: 0;
+    color: #5A4633;
+}
+
+#create_pet_wrapper button[type="submit"] {
+    width: 93%;
+    margin: 40px auto auto;
+    background-color: #5A4633;
+    color: #F5EDE3;
+    font-weight: 700;
+    border: none;
+}
+
+#create_pet_wrapper input[type="file"] {
+    font-size: 14px;
+    font-style: italic;
+    color: #5A4633;
+    opacity: 0.8;
+    font-weight: 300;
+    height: fit-content;
+}
+
+#app_update_status_row input[type="radio"]:focus,
+#app_update_status_row input[type="radio"]:checked,
+#create_pet_wrapper input[type="radio"]:focus,
+#create_pet_wrapper input[type="radio"]:checked {
+    background-color: #5A4633;
+    box-shadow: none;
+    border-color: #5A4633;
+}
+
+#create_pet_wrapper textarea {
+    font-size: 13px;
+    height: 80px;
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+/************************ PROFILE MANAGEMENT PAGE */
+
+#statuses_tap_container button {
+    border: none;
+    font-family: "Merriweather", "serif";
+    letter-spacing: 0.8;
+    padding: 10px;
+
+}
+
+#profile_dashboard_wrapper {
+    max-width: 1100px;
+    min-height: 300px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 0;
+}
+
+#profile_dashboard_wrapper #profile_dashboard_container {
+    width: 85%;
+    min-height: fit-content;
+    margin: 0 auto;
+}
+
+
+#profile_dashboard_spinner_holder {
+    height: inherit;
+    width: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+#profile_dashboard_spinner_holder .spinner-border {
+    height: 80px;
+    width: 80px;
+    color: #9E7F66;
+    margin: 0 auto;
+    position: relative;
+    top: 40%;
+}
+
+/**** PERSONAL DETAILS UPDATE */
+#email_update_wrapper,
+#personal_details_update_wrapper {
+    padding: 40px;
+    background-color: #F5EDE3;
+    border: solid 1px #5A4633;
+}
+
+#email_update_wrapper h6,
+#personal_details_update_wrapper h6 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #5A4633;
+
+}
+
+#email_update_wrapper form label,
+#personal_details_update_wrapper form label {
+    color: #C19A6B;
+    font-size: 16px;
+}
+
+#email_update_wrapper form input,
+#personal_details_update_wrapper form input {
+    margin-bottom: 20px;
+    width: 60%;
+}
+
+#update_email_submit_button,
+#personal_details_update_submit_button {
+    margin: 30px auto;
+    width: 60%;
+    background-color: #5A4633;
+    border: solid 1px #5A4633;
+    font-weight: 700;
+}
+
+#update_email_submit_button:hover,
+#personal_details_update_submit_button:hover {
+    background-color: #F5EDE3;
+    border: solid 1px #5A4633;
+    color: #5A4633;
+    font-weight: 700;
+}
+
+
+#delete_user_button {
+    color: #453220;
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#delete_profile_heading {
+    margin-top: 40px;
+}
+
+#profile_dashboard_wrapper .delete_user_accordion_wrapper {
+    padding: 20px;
+    background-color: #C19A6B;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#profile_dashboard_wrapper .delete_user_accordion_wrapper p {
+    color: #5A4633;
+    font-weight: 700;
+    text-align: center;
+}
+
+#profile_dashboard_wrapper .delete_profile_confirm_button {
+    margin: 0 auto;
+    width: 30%;
+    background-color: #F5EDE3;
+    color: #060504;
+}
+
+/*******************************************   (min-width: 768px) and (max-width: 992px) ********/
+@media (min-width: 768px) and (max-width: 992px) {
+
+    #create_pet_wrapper,
+    #register_form_wrapper,
+    #update_pet_wrapper {
+        width: 100%;
+        min-height: fit-content;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    #create_pet_container,
+    #register_form_container,
+    #register_form_wrapper>.row {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    /*** LOGIN PAGE*/
+    #login_page_container {
+        width: 80%;
+        padding: 40px;
+    }
+
+    #login_form label {
+        color: #C19A6B;
+    }
+
+    #login_form input {
+        width: 80%;
+    }
+
+    /************************ PROFILE MANAGEMENT PAGE */
+
+    #profile_dashboard_wrapper {
+        width: 100%;
+    }
+
+    /**** PERSONAL DETAILS UPDATE */
+    #email_update_wrapper,
+    #personal_details_update_wrapper {
+        padding: 40px;
+        background-color: #F5EDE3;
+        border: solid 1px #5A4633;
+    }
+
+    #email_update_wrapper h6,
+    #personal_details_update_wrapper h6 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+
+
+}
+
+/*******************************************  (min-width: 578px) and (max-width: 768px) ********/
+@media (min-width: 578px) and (max-width: 768px) {
+
+    #create_pet_container,
+    #register_form_container,
+    #register_form_wrapper>.row {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    #reg_form input {
+        width: 100%;
+    }
+
+    /*** LOGIN PAGE*/
+    #login_page_container {
+        width: 90%;
+        padding: 40px;
+    }
+
+    #login_form input {
+        width: 90%;
+    }
+
+    #login_page_action_holder {
+        text-align: center;
+    }
+
+    #login_page_submit_button {
+        width: 60%;
+    }
+}
+
+/*******************************************  (min-width: 350px) and (max-width: 576px) ********/
+
+@media (min-width: 350px) and (max-width: 576px) {
+
+    /***************** REGISTER FORM******/
+    #reg_form input {
+        width: 100%;
+    }
+
+    #register_form_holder .row .col {
+        padding: 5px;
+    }
+
+    /***************** PET CREATION FORM******/
+    #create_pet_wrapper {
+        width: 100%;
+    }
+
+    #create_pet_container,
+    #register_form_container,
+    #register_form_wrapper>.row {
+        margin: 0 auto;
+        width: 95%;
+    }
+
+
+    #pet_offerType_row>div {
+        margin: 0;
+    }
+
+    #list_pet_form input {
+        height: 50px;
+        font-size: 14px;
+        width: 95%;
+    }
+
+    #create_pet_wrapper button[type="submit"] {
+        width: 90%;
+    }
+
+    #create_pet_wrapper #form_textarea .form-label {
+        font-size: 13px;
+    }
+
+    #create_pet_wrapper textarea {
+        font-size: 13px;
+        height: 80px;
+        width: 98%;
+        margin: 20px auto 30px;
+    }
+
+
+    /************************ PROFILE MANAGEMENT PAGE */
+    #profile_dashboard_wrapper {
+        width: 100%;
+    }
+
+    /**** PERSONAL DETAILS UPDATE */
+    #email_update_wrapper,
+    #personal_details_update_wrapper {
+        padding: 40px;
+        background-color: #F5EDE3;
+        border: solid 1px #5A4633;
+    }
+
+    #email_update_wrapper h6,
+    #personal_details_update_wrapper h6 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    #email_update_wrapper label,
+    #personal_details_update_wrapper form label {
+        color: #C19A6B;
+        font-size: 14px;
+    }
+
+    #email_update_wrapper form input,
+    #personal_details_update_wrapper form input {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    #update_email_submit_button,
+    #personal_details_update_submit_button {
+        width: 90%;
+    }
+
+    #update_email_submit_button:hover,
+    #personal_details_update_submit_button:hover {
+        background-color: #F5EDE3;
+        border: solid 1px #5A4633;
+        color: #5A4633;
+        font-weight: 700;
+    }
+
+    #reg_form input {
+        width: 100%;
+    }
+
+    /*** LOGIN PAGE*/
+    #login_page_wrapper {
+        width: 100%;
+    }
+
+    #login_page_container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #login_page_wrapper #login_form input {
+        width: 100%;
+    }
+
+    #login_page_wrapper #login_submit_button {
+        width: 100%;
+    }
+
+    #login_page_wrapper #forgot_password_holder a {
+        font-size: 14px;
+    }
+
+    #login_page_action_holder {
+        text-align: center;
+    }
+
+    #login_page_submit_button {
+        width: 60%;
+    }
+
+    #login_page_wrapper #login_form {
+        margin-left: 0px;
+    }
+
+}
