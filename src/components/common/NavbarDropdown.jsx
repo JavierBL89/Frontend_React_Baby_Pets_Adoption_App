@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 import NavLinkComponent from "./NavLinkComponent";
 import NotificationBadge from "../notifications/components/NotificationBadge";
 import { NotificationsContext } from "../../context/NotificationsContext";
-import useFetchNotifications from "../hooks/data/fetchNotifications";
+import { Link } from "react-router-dom";
 
 
 
@@ -26,8 +26,6 @@ const NavbarDropDown = ({ id }) => {
 
     const token = localStorage.getItem('token');
 
-    console.log(unviewedListingsNotifications.length);
-    console.log(unviewedAppStatusNotifications.length);
     return (
         <NavDropdown
             id={id}
@@ -35,20 +33,24 @@ const NavbarDropDown = ({ id }) => {
             menuVariant="light"
             className="dropstart"
         >
+            {/***************** Profile **********/}
             <NavDropdown.Item as="span">
-                <NavLinkComponent id="profile_link_nav" href={`/profile/${token}`} text="Profile" />
+                <Link id="profile_link_nav" href={`/profile/${token}`} >Profile</Link>
             </NavDropdown.Item>
 
+            {/***************** My Listings **********/}
             <NavDropdown.Item as="span">
-                <NavLinkComponent id="myListings_link_nav" href={`/my_listings/${token}`} text="My Listings" />
+                <Link id="myListings_link_nav" to={`/my_listings/${token}`}>My Listings</Link>
                 {unviewedListingsNotifications.length > 0 && <NotificationBadge text={unviewedListingsNotifications.length} />}
             </NavDropdown.Item>
 
+            {/***************** My Applications **********/}
             <NavDropdown.Item as="span">
-                <NavLinkComponent id="profile_link_nav" href={`/my_applications/${token}`} text="My Applications" />
+                <Link id="profile_link_nav" href={`/my_applications/${token}`}>My Applications</Link>
                 {unviewedAppStatusNotifications.length > 0 && <NotificationBadge text={unviewedAppStatusNotifications.length} />}
             </NavDropdown.Item>
 
+            {/***************** SignOut **********/}
             <NavDropdown.Divider />
             <NavDropdown.Item as="span">
                 <NavLinkComponent id="signout_link_nav" onClick={() => logout()} href={""} text="SignOut" />
