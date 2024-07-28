@@ -26,6 +26,7 @@
     color: #5A4633;
     font-weight: 700;
     letter-spacing: 0.8px;
+    font-size: 17px;
 }
 
 #pet_tags_container ul .nav-item button:hover,
@@ -53,7 +54,7 @@
     width: 75%;
     border-radius: 15px;
     padding: 4px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     font-size: 15px;
     cursor: pointer;
 }
@@ -99,6 +100,28 @@
     margin: 160px auto;
 }
 
+
+#petListing_spinner_holder {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.spinner-border {
+    width: 100px;
+    height: 100px;
+    color: #5A4633;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#no_pets_found_text {
+    text-align: center;
+    color: #5A4633;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    border: solid 1px #C19A6B;
+    padding: 20px;
+}
 
 #load_more_button {
     margin: 0 auto;
@@ -189,8 +212,6 @@
 
 
 .pet_card_wrapper .img_holder {
-    min-height: 250px;
-    max-height: 250px;
     padding: 0;
 }
 
@@ -455,9 +476,7 @@ body {
     color: #b53c3c;
     font-style: bold;
     text-align: center;
-
 }
-
 
 /*********************************** COMMON FORM */
 
@@ -505,7 +524,6 @@ input:-webkit-autofill,
     margin-left: 15px;
 }
 
-
 #create_pet_container .parents_info_holder,
 #register_form_wrapper #register_form_container,
 #update_pet_wrapper .update_pet_info_wraper {
@@ -527,13 +545,9 @@ input:-webkit-autofill,
 }
 
 /*************** REGISTRATION FORM */
-
-
 #register_form_wrapper .reg_form_details_holder {
-
     margin-top: 7px;
     margin-bottom: 7x;
-
 }
 
 #reg_form input {
@@ -778,7 +792,6 @@ input:-webkit-autofill,
 
 @media (min-width: 768px) and (max-width: 992px) {
 
-
     /******************************** FILTERED SEARCH */
     #pet_tags_wrapper {
         margin-top: 20px;
@@ -831,7 +844,7 @@ input:-webkit-autofill,
         width: inherit;
     }
 
-    .pet_card_wrapper {
+    #pet_listing_wrapper .pet_card_wrapper {
         height: 400px;
     }
 
@@ -844,7 +857,6 @@ input:-webkit-autofill,
     .pet_card_wrapper .img_holder img {
         width: 100%;
     }
-
 
     /*********************************************** PET DETAILS VIEW *****/
     /****** PET VIEW **/
@@ -907,6 +919,42 @@ input:-webkit-autofill,
 /*********************************     @media (min-width: 356px) and (max-width: 575px)  *******/
 @media (min-width: 575px) and (max-width: 770px) {
 
+    /****** PET LISTINGS (HOMEPAGE) */
+    #pet_listing_wrapper {
+        margin: 100px auto;
+        margin-left: auto;
+    }
+
+    #pet_tags_container {
+        width: 100%;
+    }
+
+    #pet_tags_container ul {
+        width: 100%;
+        justify-content: space-evenly;
+        margin: 0 auto;
+    }
+
+    #pet_tags_container .badge_tag {
+        margin-bottom: 5px;
+    }
+
+
+    #pet_listing_wrapper .pet_card_wrapper {
+        height: 490px;
+        width: 90%;
+    }
+
+    .pet_card_wrapper .img_holder {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .pet_card_wrapper .img_holder img {
+        height: inherit;
+        width: 100%;
+    }
+
 
     /********************************  MY LISTING PAGE */
     #my_listings_wrapper {
@@ -942,11 +990,10 @@ input:-webkit-autofill,
 
     #pet_tags_container ul {
         width: 100%;
-
     }
 
     #pet_tags_container {
-        width: 80%;
+        width: 90%;
         background-color: #C19A6B;
         height: 220px;
         border-radius: 10px;
@@ -1007,50 +1054,35 @@ input:-webkit-autofill,
         width: 95%;
     }
 
-    #pet_listing_wrapper .pet_card_wrapper {
-        padding: 0;
-        margin: 0 auto 20px;
-        height: fit-content;
-        border-radius: 10px;
-        border: solid 1px #C19A6B;
-        background-color: #F5EDE3;
+    /****** PET LISTINGS (HOMEPAGE) */
+    #pet_tags_container {
+        width: 100%;
     }
 
-    #pet_listing_wrapper #pet_listing_container>.row {
+    #pet_tags_container ul {
+        width: 100%;
         justify-content: space-evenly;
         margin: 0 auto;
     }
 
-    #pet_listing_wrapper .pet_card_wrapper .card_price_holder {
-        color: #F5EDE3;
+    #pet_tags_container .badge_tag {
+        margin-bottom: 5px;
     }
 
-    #pet_listing_wrapper .pet_card_wrapper p {
-        font-style: italic;
-        font-family: "Roboto";
-        color: #5A4633;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-    }
 
-    #pet_listing_wrapper .view_pet_button {
-        letter-spacing: 0.8px;
-    }
-
-    #pet_listing_wrapper .view_pet_button:hover {
-        background-color: #5A4633;
-        color: #ffffff;
+    #pet_listing_wrapper .pet_card_wrapper {
+        height: fit-content;
+        width: 90%;
     }
 
     .pet_card_wrapper .img_holder {
-        min-height: 150px;
-        max-height: 150px;
-        padding: 0;
+        margin-bottom: 20px;
     }
 
     .pet_card_wrapper .img_holder img {
         width: 100%;
     }
+
 
     /************************************ PET DETAILS VIEW ********/
     #pet_view_wrapper {

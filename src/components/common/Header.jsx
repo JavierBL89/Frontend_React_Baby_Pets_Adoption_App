@@ -5,6 +5,7 @@ import NavLinkComponent from "./NavLinkComponent";
 import NavbarDropDown from "./NavbarDropdown";
 import LogInDropDown from "./LogInDropDown";
 import ImageComponent from "./ImageComponent";
+import { Link } from "react-router-dom";
 
 
 
@@ -28,14 +29,25 @@ const Header = () => {
     return (
         <Navbar id="header_navbar" collapseOnSelect sticky="top" expand="lg" className="">
             <Container className="pe-3">
-                <Navbar.Brand id="logo_nav" href="/">
-                    <Container id="logo_nav_holder" />
+                <Navbar.Brand id="logo_nav" href="#">
+                    <Link id="logo_nav" to="/" className="nav-link">
+                        <Container id="logo_nav_holder" />
+                    </Link>
+
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         {/**  Nav Links **/}
-                        <Nav.Link id="home_link_nav" href={`/${token}`}>Main</Nav.Link>
+                        {token ?
+                            <Link id="home_link_nav" to={`/${token}`} className="nav-link">
+                                Main
+                            </Link>
+                            :
+                            <Link id="home_link_nav" to={`/}`} className="nav-link">
+                                Main
+                            </Link>
+                        }
                         { // condition to display different links
                             !isAuthenticated ? (
                                 <>

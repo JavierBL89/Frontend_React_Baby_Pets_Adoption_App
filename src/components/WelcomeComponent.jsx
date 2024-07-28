@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
-import { AuthContext } from '../../../context/AuthContext';
-import Heading from "../../common/Heading";
-import { NotificationsContext } from "../../../context/NotificationsContext";
-import NotificationMessageComponent from "../../notifications/components/NotificationMessageComponent";
-import useFetchNotifications from "../../hooks/data/fetchNotifications";
+import { AuthContext } from "../context/AuthContext";
+import Heading from "./common/Heading";
+import { NotificationsContext } from "../context/NotificationsContext";
+import useFetchNotifications from "./hooks/data/fetchNotifications";
+import NotificationMessageComponent from "./notifications/components/NotificationMessageComponent";
 
 
 /***
@@ -17,6 +17,8 @@ const WelcomeComponent = () => {
 
     const { isAuthenticated } = useContext(AuthContext);
     const { notificationsMessage } = useContext(NotificationsContext);
+
+
 
     useFetchNotifications();
 

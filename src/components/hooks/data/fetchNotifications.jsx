@@ -18,8 +18,6 @@ const useFetchNotifications = () => {
     const { setUnviewedListingsNotifications, setErrorMessage,
         setUnviewedAppStatusNotifications, setNotificationsMessage } = useContext(NotificationsContext);
 
-    // const {  } = useContext(AuthContext);
-
     const { token } = useParams();
 
     const fetchNotifications = useCallback(async () => {

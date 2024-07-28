@@ -40,25 +40,21 @@ const Footer = () => {
                     <Row className="ms-lg-5">
                         <Link id="footer_services_link" to="/services" className="nav-link">Services</Link>
                         <Link id="footer_payment_policy_link" to="/payment_policy" className="nav-link">Payment Policy</Link>
-                        {
-                            !isAuthenticated ? (
-                                <Link id="footer_signin_link" to="/login" className="nav-link">SignIn</Link>
-                            ) : (
-                                <Link id="footer_logout_link" to="/logout" className="nav-link">Logout</Link>
-                            )
-                        }
+
                     </Row>
                     <Row className="ms-lg-5">
                         <Link id="footer_privacy_link" to="/privacy_policy" className="nav-link">Privacy Policy</Link>
                         <Link id="footer_data_deletion_link" to="/data_deletion" className="nav-link">Data Deletion</Link>
                     </Row>
                 </Nav>
-                <Navbar.Brand id="logo_footer" href="/home"></Navbar.Brand>
+                {/******** FOOTER LOGO **/}
+                <Link id="logo_footer" to="/home" className="nav-link"></Link>
+
                 <Navbar.Text className="" id="copyright">
                     {new Date().getFullYear()} BbPets Adoption. All Rights Reserved.
                 </Navbar.Text>
             </Stack>
-        </Navbar>
+        </Navbar >
     )
 };
 

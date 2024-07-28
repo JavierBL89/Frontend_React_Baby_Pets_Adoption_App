@@ -5,11 +5,12 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { Container, Row, Col, Stack, Spinner } from "react-bootstrap";
 import PetCategoriesHolder from "./pet/components/pet_categories/PetCategoriesHolder";
 import AdoptionInfoComponent from "./AdoptionInfoComponent";
-import WelcomeComponent from "./pet/components/WelcomeComponent";
+import WelcomeComponent from "./WelcomeComponent";
 import useFetchPets from "./hooks/data/fetchPets";
 import { DataPetContext } from "../context/DataPetContext";
 import PetTagsHolder from "./pet/components/pet_search/PetTagsHolder";
 import PetListingHolder from "./pet/components/pet_listing/PetListingHolder";
+import TextComponent from "./common/TextComponent";
 
 
 /***
@@ -54,14 +55,17 @@ const Home = () => {
         <Stack>
             <WelcomeComponent />
             <PetCategoriesHolder handleClick={handleClick} />
-            <Container>
+            <Container >
                 {loading &&
-                    <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>}
+                    <Row id="petListing_spinner_holder">
+                        <Spinner animation="border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                    </Row>
+                }
                 {error && <p>Error fetching pets. Please try later</p>}
                 {error && console.log("Error fetching pets: ", { error })}
-                {petsData.length > 0 && (
+                {petsData.length > 0 ? (
                     <Container>
                         <PetTagsHolder petCategory={currentPetCategory} />
                         <PetListingHolder />
@@ -69,7 +73,9 @@ const Home = () => {
                             <button id="load_more_button" onClick={loadMore} disabled={pages[currentPetCategory]?.page >= totalPages - 1}>More Pets</button>
                         </Row>
                     </Container>
-                )}
+                ) :
+                    !loading && <TextComponent text="Not data found" id="no_pets_found_text" />
+                }
             </Container>
             <AdoptionInfoComponent />
         </Stack>

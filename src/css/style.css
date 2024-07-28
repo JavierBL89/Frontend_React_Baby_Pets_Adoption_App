@@ -162,6 +162,7 @@
 
 @media (min-width: 768px) and (max-width: 990px) {
 
+
     /************************************ PET CATEGORIES */
     #categories_wrapper {
         margin-bottom: 350px;
@@ -271,6 +272,11 @@
 
     }
 
+    /*** ADOPTION INFORMATION */
+    #adoption_info_wrapper #adoption_info_container {
+        width: 100%;
+    }
+
     /** VERIFY ACOUNT*/
     #very_account_wrapper {
         width: 100%;
@@ -319,7 +325,7 @@
     }
 
     #hero_holder {
-        margin: 20px auto 0;
+        /* margin: 20px auto 0; */
         width: 700px;
     }
 
@@ -327,7 +333,6 @@
         width: 97%;
         height: auto;
         position: absolute;
-        bottom: 95px;
         z-index: -1;
     }
 
@@ -355,6 +360,8 @@
 
     #categories_wrapper .category_tittle {
         font-size: 17px;
+        position: relative;
+        bottom: 15px;
     }
 
 
@@ -381,7 +388,7 @@
     }
 
     #adoption_info_wrapper h4 {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     /** VERIFY ACOUNT*/
