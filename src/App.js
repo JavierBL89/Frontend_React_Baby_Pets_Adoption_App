@@ -59,7 +59,7 @@ const PrivateRoute = ({ element: Component, ...rest }) => {
 
 function App() {
   return (
-    <Router basename="https://javierbl89.github.io/Frontend_React_Baby_Pets_Adoption_App">
+    <Router basename="/Frontend_React_Baby_Pets_Adoption_App">
       <ScrollToTop />
 
       <NotificationsProvider >
