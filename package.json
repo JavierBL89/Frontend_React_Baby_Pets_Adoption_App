@@ -2,7 +2,7 @@
   "name": "bb-pets-adoption-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://javierbl89.github.io/Frontend_React_Baby_Pets_Adoption_App",
+  "homepage": "https://Javierbl89.github.io/Frontend_React_Baby_Pets_Adoption_App",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "@stomp/stompjs": "^7.0.0",
