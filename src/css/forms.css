@@ -34,13 +34,17 @@ input:-webkit-autofill,
     /* Remove the default outline */
 }
 
+#update_pet_wrapper,
 #create_pet_wrapper,
 #register_form_wrapper {
     min-height: fit-content;
     margin-top: 100px;
     margin-bottom: 100px;
+    min-width: none;
+    max-width: 1100px;
 }
 
+#update_pet_container,
 #create_pet_container,
 #register_form_container,
 #register_form_wrapper>.row {
@@ -48,6 +52,7 @@ input:-webkit-autofill,
     width: 80%;
 }
 
+#update_pet_form label,
 #list_pet_form label,
 #reg_form label,
 #login_form {
@@ -58,11 +63,13 @@ input:-webkit-autofill,
     color: #C19A6B;
 }
 
+#update_pet_form label,
 #list_pet_form label {
     color: #5A4633;
     font-weight: 500;
 }
 
+#update_pet_wrapper .update_pet_info_holder,
 #create_pet_container .parents_info_holder,
 #register_form_wrapper #register_form_container {
     padding: 15px;
@@ -81,38 +88,39 @@ input:-webkit-autofill,
     background-color: transparent !important;
 }
 
+#update_pet_wrapper #update_pet_submit_button,
 #reg_submit_button,
 #login_submit_button {
     border-color: #5A4633;
-    letter-spacing: 0.5px;
+    background-color: #5A4633;
+    color: #F5EDE3;
+    letter-spacing: 0.8px;
     font-weight: light;
     margin-top: 20px;
 }
 
+#update_pet_wrapper #update_pet_submit_button:hover,
 #reg_submit_button:hover,
 #login_submit_button:hover {
     background-color: #ffffff;
     color: #5A4633;
 }
 
-#reg_submit_button,
-#login_submit_button {
-    background-color: #5A4633;
-    color: #F5EDE3;
-}
 
 /******************************************* REGISTRATION FORM */
+#update_pet_wrapper h6,
 #reg_heading {
     font-weight: 700;
     color: #5A4633;
 }
 
+#update_pet_wrapper .update_pet_info_holder,
 #register_form_wrapper .reg_form_details_holder {
     margin-top: 7px;
     margin-bottom: 7x;
-
 }
 
+#update_pet_form input,
 #reg_form input,
 #personal_details_update_wrapper form input {
     font-size: 14px;
@@ -120,6 +128,7 @@ input:-webkit-autofill,
     color: #5A4633;
 }
 
+#update_pet_form input::placeholder,
 #reg_form input::placeholder {
     font-weight: 300;
     color: #5A4633;
@@ -131,7 +140,6 @@ input:-webkit-autofill,
     width: 43%;
     margin: 30px auto;
 }
-
 
 /*** LOGIN PAGE*/
 #login_page_wrapper {
@@ -190,12 +198,10 @@ input:-webkit-autofill,
 }
 
 /**************************************** PET CREATION FORM******/
-
 #list_pet_form div {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
 
 #list_pet_form input {
     height: 50px;
@@ -276,6 +282,39 @@ input:-webkit-autofill,
     height: 80px;
     width: 90%;
     margin-bottom: 30px;
+}
+
+/************ UPDATE PET */
+#update_pet_wrapper {
+    padding: 15px;
+
+}
+
+#update_pet_wrapper .update_pet_info_wraper {
+    margin-bottom: 50px;
+}
+
+#update_pet_wrapper textarea {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#update_pet_form small {
+    margin-left: 15px;
+    color: #C19A6B;
+}
+
+#update_pet_form label {
+    margin-left: 15px;
+}
+
+#update_pet_form label[for="formComment"] {
+    margin-left: 40px;
+}
+
+#update_pet_form input {
+    width: 80%;
+    margin-left: 15px;
 }
 
 /************************ PROFILE MANAGEMENT PAGE */
@@ -429,8 +468,8 @@ input:-webkit-autofill,
         width: 80%;
     }
 
-    /************************ PROFILE MANAGEMENT PAGE */
 
+    /************************ PROFILE MANAGEMENT PAGE */
     #profile_dashboard_wrapper {
         width: 100%;
     }
@@ -448,9 +487,6 @@ input:-webkit-autofill,
         font-size: 1.3rem;
         margin-bottom: 20px;
     }
-
-
-
 }
 
 /*******************************************  (min-width: 578px) and (max-width: 768px) ********/
@@ -484,6 +520,23 @@ input:-webkit-autofill,
     #login_page_submit_button {
         width: 60%;
     }
+
+
+    /********* UPDATE PET */
+    #update_pet_container {
+        width: 95%;
+    }
+
+    #update_pet_form label {
+
+        margin-left: 0;
+    }
+
+    #update_pet_form input {
+        width: 100%;
+        margin-left: 0;
+    }
+
 }
 
 /*******************************************  (min-width: 350px) and (max-width: 576px) ********/
@@ -537,6 +590,47 @@ input:-webkit-autofill,
         margin: 20px auto 30px;
     }
 
+    /************ UPDATE PET */
+    #update_pet_wrapper {
+        padding: 15px;
+
+    }
+
+    #update_pet_container {
+        width: 95%;
+    }
+
+    /* #update_pet_wrapper .update_pet_info_holder {
+        padding-left: 0;
+        padding-right: 0;
+    } */
+
+    #update_pet_wrapper .update_pet_info_wraper {
+        margin-bottom: 50px;
+    }
+
+    #update_pet_wrapper textarea {
+        width: 90%;
+    }
+
+    #update_pet_form small {
+        margin-left: 0;
+        color: #C19A6B;
+    }
+
+    #update_pet_form label {
+        margin-left: 0;
+    }
+
+    #update_pet_form label[for="formComment"] {
+        margin-left: 20px;
+        font-size: 11px;
+    }
+
+    #update_pet_form input {
+        width: 80%;
+        margin-left: 0;
+    }
 
     /************************ PROFILE MANAGEMENT PAGE */
     #profile_dashboard_wrapper {

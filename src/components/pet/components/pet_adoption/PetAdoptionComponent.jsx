@@ -40,13 +40,17 @@ const PetAdoptionComponent = ({ petId, userName }) => {
                     </Container>
                     <Heading id="adoption_form_title" tagName="h4" text="Adoption Applications" />
                 </Row>
-                <Row >
-                    <TextComponent id="before_application_text"
-                        text="Before you apply....\n We'd like you to be sure of the responsabilities that come with introducing
-                    a pet in yor life. \n Additionally we ask you ensure a correct communication with the pet provider,
+                <Row id="before_application_text">
+                    <TextComponent text="Before you apply...." />
+                    <TextComponent
+                        text="We'd like you to be sure of the responsabilities that come with introducing
+                    a pet in yor life!"
+                    />
+                    <TextComponent text="Additionally we ask you ensure a correct communication with the pet provider,
                      and to make you aware that there could be applications before yours and pet provider could take so time to evaluate each application. 
-                     In the meantime you can track your application status. We also notify you of any statues changes.\n "
-
+                     In the meantime you can track your application status." />
+                    <TextComponent
+                        text="We'll also notify you with any of your application statuses updates."
                     />
 
                 </Row>

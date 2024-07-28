@@ -105,12 +105,10 @@ const Login = () => {
             if (response.status === 200 && response.data) {
                 setPostActionMessage("Welcome back " + response.data.userName)
                 login(response.data.token, response.data.registeredBy, response.data.userName);
-
             }
 
 
         } catch (error) {
-
             // check if error response exists
             if (error.response && error.response.status === 401) {
                 setMessage("Invalid email address or password. Please reset data entered and try again.");
@@ -155,7 +153,7 @@ const Login = () => {
                                 <Form.Group controlId="login_password">
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control
-                                        type="passsword"
+                                        type="password"
                                         name="password"
                                         value={credentials.password}
                                         onChange={(e) => { handleCredentials(e) }}

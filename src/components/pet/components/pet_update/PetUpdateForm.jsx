@@ -186,7 +186,7 @@ const PetUpdateForm = () => {
 
     return (
         <Container >
-            <Form onSubmit={handleSubmit} id="list_pet_form">
+            <Form onSubmit={handleSubmit} id="update_pet_form">
                 <Container className="update_pet_info_wraper">
 
                     {/******** Info Section ******/}
@@ -197,7 +197,7 @@ const PetUpdateForm = () => {
 
                     <Container className="update_pet_info_holder">
                         <Row >
-                            <Col >
+                            <Col className="ps-0">
 
                                 {/****************************   Birth date  **********************/}
                                 <Row id="pet_birth_date_holder">

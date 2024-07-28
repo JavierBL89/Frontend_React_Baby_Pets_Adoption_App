@@ -20,25 +20,25 @@ const MyApplicationCard = ({ applicationDate, id, applicationId, petId, price,
             <Container id={`application_container_${id}`} className="applicationCard_container">
                 <Row >
                     {/******* Mother's Image *******/}
-                    <Col xs={4} className="application_img_holder">
+                    <Col xs={12} md={5} className="application_img_holder">
                         <ImageComponent src={motherImg} className={""} alt={motherBreed} />
                     </Col>
 
                     {/******* Application details *******/}
-                    <Col xs={8}>
+                    <Col xs={12} md={7}>
                         <Row className="application_details_row">
                             <Col >
                                 <Row>
-                                    <Col xs={6}> <small >Applied On:</small></Col>
-                                    <Col xs={6}>
+                                    <Col xs={12} > <small >Applied On:</small></Col>
+                                    <Col className="ps-0">
                                         <TextComponent text={`${applicationDate[2]}/${applicationDate[1]}/${applicationDate[0]}`} />
                                     </Col>
                                 </Row>
                             </Col>
                             <Col >
                                 <Row>
-                                    <Col xs={4}><small >Status:</small></Col>
-                                    <Col xs={8}> <TextComponent text={status} /></Col>
+                                    <Col xs={12} ><small >Status:</small></Col>
+                                    <Col className="ps-0"> <TextComponent text={status} /></Col>
                                 </Row>
                             </Col>
                         </Row>
@@ -47,27 +47,24 @@ const MyApplicationCard = ({ applicationDate, id, applicationId, petId, price,
                             {/******* Owner Name *******/}
                             <Col >
                                 <Row>
-                                    <Col xs={6}> <small >Owner's Name:</small></Col>
-                                </Row>
-                                <Row>
-                                    <Col xs={6} > <TextComponent text={ownerName} /></Col>
+                                    <Col xs={12}> <small >Owner's Name:</small></Col>
+                                    <Col className="ps-0" > <TextComponent text={ownerName} /></Col>
                                 </Row>
 
                             </Col>
                             {/******* Location *******/}
                             <Col >
                                 <Row>
-                                    <Col xs={6}> <small >Pet's Location</small></Col>
-                                    <Col xs={6}> <small >{location}</small></Col>
+                                    <Col xs={12} > <small >Pet's Location</small></Col>
+                                    <Col className="ps-0"> <TextComponent text={location} /></Col>
                                 </Row>
                             </Col>
                         </Row>
-                        <Row >
-                            <Col xs={6}>
+                        <Row className="application_details_row">
+                            <Col xs={8}>
                                 <Row >
-                                    <Col xs={6}> <small >Price</small></Col>
-
-                                    <Col xs={6}> {price ? <small >{price}€</small> : <small >"Free Adoption"</small>}</Col>
+                                    <Col xs={3}> <small id="my_app_price">Price</small></Col>
+                                    <Col xs={9}> {price ? <p>{price}€</p> : <TextComponent id="my_app_free_adoption" text="Free Adoption" />} </Col>
                                 </Row>
                             </Col>
                         </Row>
@@ -76,7 +73,7 @@ const MyApplicationCard = ({ applicationDate, id, applicationId, petId, price,
 
                 <Row className="application_drop_holder">
                     {/******* Drop app button *******/}
-                    <Col >
+                    <Col className="p-0 m-0">
                         <Row >
                             <Dropdown className="p-0 m-0">
                                 <Dropdown.Toggle className="drop_application_dropdown no-arrow ">

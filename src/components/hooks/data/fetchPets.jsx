@@ -38,6 +38,7 @@ const useFetchPets = () => {
 
     const [loading, setLoading] = useState(false);  // state used for feedback or UX purposes
     const [error, setError] = useState(null);       // state for error messages
+    const [message, setMessage] = useState(null);       // state for error messages
     const num_of_columns = 6;                      // Number of items per page
 
     // use DataPetContext to access 'dataPets' & current pet category states
@@ -96,7 +97,7 @@ const useFetchPets = () => {
                         setPetsData(prevPets => append ? [...prevPets, ...newPets] : newPets);
                         setTotalPages(result.totalPages);  // this data variable comes on JSON object response provided from Page class in API
                     } else {
-                        setError("No data returned");
+                        setMessage("No data returned");
                     }
                 } else {
                     throw new Error(`HTTP error status: ${response.status}`);
@@ -133,7 +134,7 @@ const useFetchPets = () => {
     };
 
 
-    return { pages, loadMore, loading, error, totalPages }; // return constants to be accessed from other parts in application
+    return { pages, loadMore, message, loading, error, totalPages }; // return constants to be accessed from other parts in application
 };
 
 export default useFetchPets;

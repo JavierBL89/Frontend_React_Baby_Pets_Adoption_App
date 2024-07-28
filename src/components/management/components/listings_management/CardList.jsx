@@ -37,12 +37,13 @@ const CardList = ({ motherImage, motherBreed, createdOn, price, token,
                 <Row className="view_pet_applications_link_holder">
 
                     <Col className="view_pet_applications_link">
+                        {petListing.pendingNotifications.length > 0 &&
+                            <NotificationBadge text={"+" + petListing.pendingNotifications.length} />
+                        }
                         <a href={`/pet_applications/${petId}/${token}`} >
                             <small >See applications</small>
                         </a>
-                        {petListing.pendingNotifications.length > 0 &&
-                            <NotificationBadge text={petListing.pendingNotifications.length} />
-                        }
+
                     </Col>
 
                 </Row>

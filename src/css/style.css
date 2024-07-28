@@ -368,12 +368,12 @@
     /*************** ADOPTION INFORMATION SECTION */
 
     #adoption_info_wrapper {
-        margin-top: 80px;
+        margin-top: 100px;
         margin-bottom: 80px;
     }
 
     #adoption_info_wrapper #adoption_info_heading {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
     #adoption_info_wrapper #adoption_info_container {

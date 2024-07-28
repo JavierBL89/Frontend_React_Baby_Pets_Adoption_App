@@ -26,8 +26,16 @@ const Home = () => {
 
     // state for displaying certain info and elements based on authentication conditions
     const { isAuthenticated, login } = useContext(AuthContext);
-    const { currentPetCategory, petsData, setCurrentPetCategory, resetPetsData } = useContext(DataPetContext);
-    const { loading, error, totalPages, loadMore, pages } = useFetchPets();
+    const { currentPetCategory, petsData, foundDataFlag, setCurrentPetCategory, resetPetsData } = useContext(DataPetContext);
+    const { loading, message, error, totalPages, loadMore, pages } = useFetchPets();
+
+    /***
+    * useEffect resets data to empty on every render
+    */
+    const handleFoundData = () => {
+
+    }
+
 
     /***
        * useEffect resets data to empty on every render
@@ -74,7 +82,7 @@ const Home = () => {
                         </Row>
                     </Container>
                 ) :
-                    !loading && <TextComponent text="Not data found" id="no_pets_found_text" />
+                    !loading && message && <TextComponent text="Not data found" id="no_pets_found_text" />
                 }
             </Container>
             <AdoptionInfoComponent />

@@ -122,7 +122,7 @@ const PetDetailsView = () => {
                     {isAuthenticated ? (
                         <PetAdoptionComponent petId={petId} userName={userName} currentPetCategory={currentPetCategory} />
                     ) : (
-                        <PostActionMessage text={"Only subscribed users have access to adoption services!"} />
+                        <TextComponent text={"Only subscribed users have access to adoption services!"} id="only_subscribed_message" />
                     )}
                 </Row>
             </Container>
