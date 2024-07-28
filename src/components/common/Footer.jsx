@@ -39,7 +39,7 @@ const Footer = () => {
                         <NavLinkComponent id="footer_contact_link" href="/contact" text="Contact" />
                     </Row>
                     <Row className="ms-lg-5">
-                        <NavLinkComponent id="footer_services_link" href="/Services" text="Services" />
+                        <NavLinkComponent id="footer_services_link" href="/services" text="Services" />
                         <NavLinkComponent id="footer_payment_policy_link" href="/payment_policy" text="Payment Policy" />
                         {
                             /*    !isAuthenticated ? (
