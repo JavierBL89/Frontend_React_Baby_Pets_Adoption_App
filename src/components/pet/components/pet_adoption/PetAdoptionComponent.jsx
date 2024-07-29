@@ -15,7 +15,7 @@ import { AuthContext } from "../../../../context/AuthContext";
  * 
  * @returns  'PetAdoptionComponent' - thr component
  */
-const PetAdoptionComponent = ({ petId, userName }) => {
+const PetAdoptionComponent = ({ petId, userName, onSuccessSubmit }) => {
 
     const [viewForm, setViewForm] = useState(null);
 
@@ -64,7 +64,7 @@ const PetAdoptionComponent = ({ petId, userName }) => {
                         {
                             viewForm &&
                             <Row id="adoption_form_body">
-                                <PetAdoptionForm petId={petId} userName={userName} />
+                                <PetAdoptionForm petId={petId} onSuccessSubmit={onSuccessSubmit} userName={userName} />
                             </Row>
                         }
                     </Row>

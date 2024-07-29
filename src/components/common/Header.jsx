@@ -30,7 +30,7 @@ const Header = () => {
         <Navbar id="header_navbar" collapseOnSelect sticky="top" expand="lg" className="">
             <Container className="pe-3">
                 <Navbar.Brand id="logo_nav" href="#">
-                    <Link id="logo_nav" to="/" className="nav-link">
+                    <Link id="logo_nav" to={`/${token}`} className="nav-link">
                         <Container id="logo_nav_holder" />
                     </Link>
 

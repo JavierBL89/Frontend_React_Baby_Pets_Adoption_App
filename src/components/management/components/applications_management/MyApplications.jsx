@@ -8,6 +8,7 @@ import { FeedbackContext } from "../../../../context/FeedBackContext";
 import PostActionMessage from "../../../common/PostActionMessage";
 import NotificationMessageComponent from "../../../notifications/components/NotificationMessageComponent";
 import useFetchNotifications from "../../../hooks/data/fetchNotifications";
+import SpecificNotificationsComponent from "../../../notifications/components/SpecificNotificationsComponent";
 
 /***
  * Component acts as core of my_listings page.
@@ -29,6 +30,8 @@ const MyApplications = () => {
     const [loading, setLoading] = useState(false);
     const [totalPages, setTotalPages] = useState(0);
     const [orderBy, setOrderBy] = useState("asc");
+
+    useFetchNotifications(); // update notifications data on every render
 
     /***
      * Method responibe for making a GET request to fetch all adoption 
@@ -96,6 +99,7 @@ const MyApplications = () => {
      */
     const handleDrop = async (applicationId) => {
 
+
         if (!token) {
             setMessage("Operation cannot be processed. Missing authenication token")
             return;
@@ -108,6 +112,7 @@ const MyApplications = () => {
                 // DELETE request
                 const response = await instance.delete(`/adoption/delete_application?token=${trimmedToken}&applicationId=${applicationId}`);
                 if (response.status === 200) {
+                    window.scrollTo(0, 0);
                     setPostActionMessage("Application successfully removed")
                     fetchApplicationsData();
 
@@ -159,7 +164,6 @@ const MyApplications = () => {
             return
         }
 
-
         try {
             // PUT request
             const response = await instance.put(`/notifications/markAsViewed?token=${token}&notificationId=${notificationId}`);
@@ -179,14 +183,6 @@ const MyApplications = () => {
 
         <Container id="my_applications_wrapper">
             <Container id="my_applications_container">
-                { /*************** Post-action Feedback message  *********************/}
-                <Row >
-                    <Container id="post_action_message_holder">
-                        {!loading && postActionMessage && (
-                            <PostActionMessage text={postActionMessage} />
-                        )}
-                    </Container>
-                </Row>
                 { /*************** Notification warnings  *********************/}
                 <Row >
                     <Container id="notification_message_holder">
@@ -200,7 +196,7 @@ const MyApplications = () => {
                                         message = notification.message;
                                     }
                                     return (
-                                        <NotificationMessageComponent key={index}
+                                        <SpecificNotificationsComponent key={index}
                                             notificationId={notification.id}
                                             applcationId={app.id}
                                             onViewed={handleViewed}
@@ -213,6 +209,14 @@ const MyApplications = () => {
                                 })
                             )
                         }
+                    </Container>
+                </Row>
+                { /*************** Post-action Feedback message  *********************/}
+                <Row >
+                    <Container id="post_action_message_holder">
+                        {!loading && postActionMessage && (
+                            <PostActionMessage text={postActionMessage} />
+                        )}
                     </Container>
                 </Row>
                 <Row >
@@ -231,9 +235,8 @@ const MyApplications = () => {
                             {loading &&
                                 <Row id="my_applications_spinner_holder">
                                     <Spinner animation="border" />
-                                </Row>}
-
-
+                                </Row>
+                            }
                             {
                                 applications && applications.map((application, index) => {
 
@@ -250,12 +253,10 @@ const MyApplications = () => {
                                             location={application.pet.location}
                                             // delete listing button passes the petId
                                             onDelete={handleDrop}
-
                                         />
                                     )
                                 }
                                 )
-
                             }
 
                         </Row>

@@ -104,6 +104,7 @@ const PetApplications = () => {
      */
     const handleDrop = async (objectId) => {
 
+        console.log(objectId);
         if (!token) {
             setMessage("Operation cannot be processed. Missing authenication token")
             return;
@@ -115,12 +116,12 @@ const PetApplications = () => {
 
             try {
                 // DELETE request
-                const response = await instance.delete(`/pets/delete_pet?token=${trimmedToken}&petListId=${objectId}`);
+                const response = await instance.delete(`/adoption/delete_application?token=${trimmedToken}&applicationId=${objectId}`);
                 if (response.status === 200) {
+                    setApplications([]);
                     fetchApplicationsData();    // reload page with new data                 
-                    // Store feedback message in localStorage
-                    localStorage.setItem('feedbackMessage', 'Application successfully removed!');
-                    navigate(`/my_applications/${token}`);
+                    setPostActionMessage("Application successfully removed!. The applicant will receive a notification.")
+                    navigate(`/pet_applications/${petId}/${token}`);
 
                 } else {
                     console.error("Item could not be removed:", response.data);
@@ -131,7 +132,7 @@ const PetApplications = () => {
                 console.error('Error deleting item:', error);
             }
         } else {
-            setMessage("Item could not be deleted. Logout and try again")
+            setPostActionMessage("Item could not be deleted. Logout and try again")
             console.error("Missing object Id to complete operation. Please ensure variable 'objectId' is defined.");
         }
 
@@ -234,7 +235,7 @@ const PetApplications = () => {
                     </Row>
                     { /*************** APLICATIONS LIST  *********************/}
                     <Row>
-                        < ApplicationStatusTabComponent onTabSelect={handleTabSelection} />
+                        <ApplicationStatusTabComponent onTabSelect={handleTabSelection} />
                     </Row>
                     <Row id="pet_applications_list_wrapper">
                         <Row id="pet_applications_list_holder" >
@@ -265,7 +266,7 @@ const PetApplications = () => {
                                             petId={application.petId}
                                             onFetchData={() => fetchApplicationsData()}
                                             // delete listing button passes the petId
-                                            onDelete={() => handleDrop()}
+                                            onDelete={() => handleDrop(application.id)}
 
                                         />
                                     )

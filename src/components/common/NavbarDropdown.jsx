@@ -38,16 +38,24 @@ const NavbarDropDown = ({ id }) => {
                 <Link id="profile_link_nav" href={`/profile/${token}`} >Profile</Link>
             </NavDropdown.Item>
 
-            {/***************** My Listings **********/}
+            {/***************** My Listings (Notifications badge must be always there) **********/}
             <NavDropdown.Item as="span">
-                <Link id="myListings_link_nav" to={`/my_listings/${token}`}>My Listings</Link>
-                {unviewedListingsNotifications.length > 0 && <NotificationBadge text={unviewedListingsNotifications.length} />}
+                <Link id="myListings_link_nav" to={`/my_listings/${token}`} className="me-0">My Listings</Link>
+                {unviewedListingsNotifications.length > 0 ?
+                    <NotificationBadge className="show" text={unviewedListingsNotifications.length} />
+                    :
+                    <NotificationBadge className="hidden" text={unviewedListingsNotifications.length} />
+                }
             </NavDropdown.Item>
 
             {/***************** My Applications **********/}
             <NavDropdown.Item as="span">
-                <Link id="profile_link_nav" href={`/my_applications/${token}`}>My Applications</Link>
-                {unviewedAppStatusNotifications.length > 0 && <NotificationBadge text={unviewedAppStatusNotifications.length} />}
+                <Link id="profile_link_nav" to={`/my_applications/${token}`} className="me-0">My Applications</Link>
+                {unviewedAppStatusNotifications.length > 0 ?
+                    <NotificationBadge className="show" text={unviewedAppStatusNotifications.length} />
+                    :
+                    <NotificationBadge className="hidden" text={unviewedAppStatusNotifications.length} />
+                }
             </NavDropdown.Item>
 
             {/***************** SignOut **********/}

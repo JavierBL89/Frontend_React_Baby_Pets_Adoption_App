@@ -19,7 +19,7 @@ const useFetchNotifications = () => {
         setUnviewedAppStatusNotifications, setNotificationsMessage } = useContext(NotificationsContext);
 
     const { token } = useParams();
-
+    console.log(token);
     const fetchNotifications = useCallback(async () => {
 
         // check if authenticated or token is missing 
@@ -52,7 +52,6 @@ const useFetchNotifications = () => {
             console.error("Authentication needed. Form could not be submited!")
             setErrorMessage("Authentication needed. Notification could no be retrieved")
         }
-
 
     }, [token, setErrorMessage, setUnviewedListingsNotifications,
         setUnviewedAppStatusNotifications, setNotificationsMessage]);

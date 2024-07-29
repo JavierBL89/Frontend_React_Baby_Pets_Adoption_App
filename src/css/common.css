@@ -83,18 +83,33 @@ h6 {
 }
 
 #notifications_space {
-    margin-top: 50px;
+    height: 170px;
 }
 
 #post_action_message_holder,
 #notification_message_holder,
 #only_subscribed_message {
-    width: 90%;
+    width: 70%;
     min-height: 70px;
     margin: 40px auto 40px;
 }
 
-#post_action_message_wrapper #post_action_message_container,
+#post_action_message_wrapper #post_action_message_container {
+    width: 100%;
+    background-color: #C19A6B;
+    padding: 15px 0 5px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+#post_action_message_wrapper #post_action_message_container h6 {
+    font-weight: 500;
+    color: #5A4633;
+    font-family: "Roboto";
+    letter-spacing: 0.8px;
+}
+
 #notification_message_container,
 #only_subscribed_message {
     width: 70%;
@@ -102,8 +117,8 @@ h6 {
     padding: 15px 0 5px;
     text-align: center;
     border-radius: 10px;
-    letter-spacing: 0.5px;
-    margin-bottom: 50px;
+    letter-spacing: 0.8px;
+    margin-top: 50px;
 }
 
 #only_subscribed_message {
@@ -114,9 +129,13 @@ h6 {
 }
 
 #header_navbar .dropdown-item {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
     position: relative;
     margin: 0 auto;
 }
+
 
 #notification_badge_container {
     height: 30px;
@@ -125,27 +144,30 @@ h6 {
     background-color: #5A4633;
 }
 
+#header_navbar #notification_badge_wrapper .show {
+    visibility: visible;
+}
+
+#header_navbar #notification_badge_wrapper .hidden {
+    visibility: hidden;
+}
+
 #header_navbar #notification_badge_wrapper {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    position: relative;
+    left: 20px;
+    bottom: 5px;
     width: 0px;
+    margin-left: 0;
 }
 
 #header_navbar #notification_badge_wrapper p {
     padding-top: 3px;
     position: relative;
-    left: 8.7px;
+    left: 1px;
     color: #F5EDE3;
     font-weight: 700;
 }
 
-#notification_badge_wrapper p {
-    padding-top: 3px;
-    padding-left: 2px;
-    color: #F5EDE3;
-    font-weight: 700;
-}
 
 #notification_message_container svg {
     color: #F5EDE3;
@@ -169,7 +191,6 @@ h6 {
     outline: none;
     /* Remove the default outline */
 }
-
 
 /********************* HEADER */
 #header_navbar {
@@ -195,7 +216,6 @@ h6 {
     border-bottom: solid 2px transparent;
 }
 
-
 #header_navbar .navbar-nav a:hover {
     letter-spacing: 1px;
     border-bottom: solid 2px #050505;
@@ -207,7 +227,7 @@ h6 {
 }
 
 #header_navbar .dropdown-menu {
-    min-width: 250px;
+    min-width: 350px;
 }
 
 #header_navbar .dropdown-menu a {
@@ -262,6 +282,7 @@ h6 {
     color: #050505;
     border-bottom: solid 1px transparent;
     text-align: center;
+    text-decoration: none;
 }
 
 #header_navbar .dropdown-menu span a:hover {
@@ -781,27 +802,10 @@ h6 {
 
 
 
-    #header_navbar #notification_badge_wrapper {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        width: 0px;
-    }
+    #header_navbar #notification_badge_wrapper {}
+
 
     #header_navbar #notification_badge_wrapper p {
-        padding-top: 3px;
-        position: relative;
-        left: 8.7px;
-        color: #F5EDE3;
-        font-weight: 700;
-    }
-
-
-    #notification_badge_wrapper p {
-        padding-top: 3px;
-        padding-left: 2px;
-        color: #F5EDE3;
-        font-weight: 700;
         font-size: 16px;
     }
 

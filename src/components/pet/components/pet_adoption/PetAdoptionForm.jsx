@@ -23,7 +23,7 @@ import { FeedbackContext } from "../../../../context/FeedBackContext";
  * 
  * @returns  `PetAdoptionForm` component 
  */
-const PetAdoptionForm = ({ petId, userName }) => {
+const PetAdoptionForm = ({ petId, userName, onSuccessSubmit }) => {
 
     const { currentPetCategory, setCurrentPetCategory } = useContext(DataPetContext);
     const [postActionMessage, setPostActionMessage] = useState(FeedbackContext)
@@ -32,7 +32,6 @@ const PetAdoptionForm = ({ petId, userName }) => {
     const [message, setMessage] = useState("");   // message state
     const [failedMessage, setFailedMessage] = useState(false);   // failedMessage state
 
-    const [override, setOverride] = useState(false)
     const [isDuplicate, setIsDuplicate] = useState(false);
 
     var token = localStorage.getItem('token');  // grab current token from locat storage
@@ -107,9 +106,9 @@ const PetAdoptionForm = ({ petId, userName }) => {
                 });
 
                 if (response.status === 200) {
+                    onSuccessSubmit();
                     setPostActionMessage("Form successfully submitted! You should see a new application in your Applications section.");
-                    localStorage.setItem('feedbackMessage', "Form successfully submitted! You should see a new application in your Applications section.");
-                    window.location.reload();
+                    window.scrollTo(0, 0);
                 }
 
                 else {

@@ -29,6 +29,8 @@ const Home = () => {
     const { currentPetCategory, petsData, foundDataFlag, setCurrentPetCategory, resetPetsData } = useContext(DataPetContext);
     const { loading, message, error, totalPages, loadMore, pages } = useFetchPets();
 
+    const token = localStorage.getItem("token")
+
     /***
     * useEffect resets data to empty on every render
     */
@@ -36,7 +38,7 @@ const Home = () => {
 
     }
 
-
+    console.log(token);
     /***
        * useEffect resets data to empty on every render
        */
@@ -61,7 +63,7 @@ const Home = () => {
     return (
 
         <Stack>
-            <WelcomeComponent />
+            <WelcomeComponent token={token} />
             <PetCategoriesHolder handleClick={handleClick} />
             <Container >
                 {loading &&

@@ -27,15 +27,17 @@ import PostActionMessage from "../../../common/PostActionMessage";
 const PetDetailsView = () => {
 
     const { petId, currentPetCategory } = useParams();
+    const [puta, setPuta] = useState("");
 
     const { isAuthenticated, userName } = useContext(AuthContext);
-    const { postActionMessage } = useContext(FeedbackContext);
+    const { postActionMessage, setPostActionMessage } = useContext(FeedbackContext);
 
     const { loading, error, petData } = useFetchById(petId);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [petData]);
+
+    const setSucessMessage = () => {
+        setPostActionMessage("Form successfully submitted! You should see a new application in your Applications section.")
+    }
 
     return (
         <Container id="pet_view_wrapper" className="">
@@ -120,7 +122,7 @@ const PetDetailsView = () => {
                 <Row>
                     {/* Conditional rendering based on user authentication */}
                     {isAuthenticated ? (
-                        <PetAdoptionComponent petId={petId} userName={userName} currentPetCategory={currentPetCategory} />
+                        <PetAdoptionComponent petId={petId} userName={userName} onSuccessSubmit={setSucessMessage} currentPetCategory={currentPetCategory} />
                     ) : (
                         <TextComponent text={"Only subscribed users have access to adoption services!"} id="only_subscribed_message" />
                     )}

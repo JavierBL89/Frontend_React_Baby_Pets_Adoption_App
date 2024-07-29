@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col, Spinner } from 'react-bootstrap';
 import Heading from "../../../common/Heading";
 import ButtonComponent from "../../../common/ButtonComponent";
 import instance from "../../../../scripts/axiosConfig";
@@ -19,6 +19,7 @@ const FormComponent = () => {
 
     const [message, setMessage] = useState("");   // message state
     const [isForSale, setIsForSale] = useState(false);   // message state
+    const [loading, setLoading] = useState(false);   // message state
     const { token } = useParams();      // grab token from url for user authentication
 
     const { setPostActionMessage } = useContext(FeedbackContext);  // get global message from FeedbackContext
@@ -47,7 +48,6 @@ const FormComponent = () => {
      * @param {*} e - the event
      */
     const handleChange = (e) => {
-
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -56,7 +56,7 @@ const FormComponent = () => {
     };
 
     /***
-     * 
+     * Method to set mother image field
      */
     const handleMotherImage = (e) => {
         setFormData({
@@ -66,8 +66,8 @@ const FormComponent = () => {
     };
 
     /***
-   * 
-   */
+     * Method to set father image field
+     */
     const handleFatherImage = (e) => {
         setFormData({
             ...formData,
@@ -76,13 +76,14 @@ const FormComponent = () => {
     };
 
     /***
-     * 
+     * Handle form submit
      * 
      * @param {*} e - the event
      */
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        setLoading(true);
         const formDataToSend = new FormData();
         formDataToSend.append('email', formData.email);
         formDataToSend.append('message', formData.message);
@@ -116,6 +117,7 @@ const FormComponent = () => {
 
                 if (response.status === 200) {
                     setPostActionMessage("Pet listing sucessfully added. From now on users can see it when navigating through the pet category.")
+                    setLoading(false);
                     navigate(`/my_listings/${token}`);
 
                 } else {
@@ -384,7 +386,16 @@ const FormComponent = () => {
                 </Container>
 
                 <Row>
-                    <button id="list_pet_submit_button" className="btn btn-primary" type="submit">Submit</button>
+
+                    { /*************** LOADING SPINNER  *********************/}
+                    {
+                        loading ?
+                            <Row id="my_listings_spinner_holder">
+                                <Spinner animation="border" />
+                            </Row>
+                            :
+                            <button id="list_pet_submit_button" className="btn btn-primary" type="submit">Submit</button>
+                    }
 
                 </Row>
 

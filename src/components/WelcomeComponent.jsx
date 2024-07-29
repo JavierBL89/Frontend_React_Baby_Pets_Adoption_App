@@ -18,8 +18,6 @@ const WelcomeComponent = () => {
     const { isAuthenticated } = useContext(AuthContext);
     const { notificationsMessage } = useContext(NotificationsContext);
 
-
-
     useFetchNotifications();
 
     return (
@@ -34,7 +32,7 @@ const WelcomeComponent = () => {
                         )
                         : notificationsMessage ?
                             (
-                                <NotificationMessageComponent />
+                                <NotificationMessageComponent className="show" />
                             )
                             :
                             null

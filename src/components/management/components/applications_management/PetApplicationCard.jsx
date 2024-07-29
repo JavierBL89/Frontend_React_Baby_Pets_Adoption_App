@@ -11,7 +11,7 @@ import ViewApplicationComponent from "./ViewApplicationComponent";
 
 /***
  * 
- * 
+ * Component to represent a card containing information of an adoption applicatio related to a specific pet
  */
 const PetApplicationCard = ({ application, id, token, onFetchData, onDelete }) => {
 
@@ -45,7 +45,6 @@ const PetApplicationCard = ({ application, id, token, onFetchData, onDelete }) =
         <Container id={`pet_application_wrapper_${id}`} className="pet_application_wrapper ">
             <Container id={`pet_application_container_${id}`} className="pet_application_container ">
                 <Row >
-
                     {/******* Application details *******/}
                     <Col xs={12} md={10}>
                         <Row className="application_details_row ">
@@ -109,7 +108,6 @@ const PetApplicationCard = ({ application, id, token, onFetchData, onDelete }) =
                             token={token}
                             onFetchData={onFetchData}
                         />
-
                     </Row>
                     :
                     null

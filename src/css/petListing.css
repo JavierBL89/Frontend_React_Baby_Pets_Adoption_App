@@ -635,11 +635,18 @@ input:-webkit-autofill,
 
 }
 
+
 /************* CARDLIST */
 .myPetCard_wrapper {
     height: fit-content;
     padding: 0;
     width: inherit;
+}
+
+.myPetCard_wrapper #notification_badge_wrapper p {
+
+    position: relative;
+    top: 3px;
 }
 
 .myPetCard_wrapper .myPetCard_container {
