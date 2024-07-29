@@ -171,7 +171,6 @@ const PetUpdateForm = () => {
                 } else {
                     console.error("Form submission failed:", response.data);
                     setMessage("Form could not be submited. A server error occured. Please try again or contact admin to inform about the problem. ")
-                    console.log(message);
                 }
             } catch (error) {
                 setMessage("Error submitting form. Please check the form fields and ensure you enter valid data.")

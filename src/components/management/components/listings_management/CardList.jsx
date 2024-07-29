@@ -5,6 +5,7 @@ import TextComponent from "../../../common/TextComponent";
 import { MdOutlineDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import NotificationBadge from "../../../notifications/components/NotificationBadge";
+import { Link } from "react-router-dom";
 
 
 /***
@@ -40,9 +41,9 @@ const CardList = ({ motherImage, motherBreed, createdOn, price, token,
                         {petListing.pendingNotifications.length > 0 &&
                             <NotificationBadge text={"+" + petListing.pendingNotifications.length} />
                         }
-                        <a href={`/pet_applications/${petId}/${token}`} >
+                        <Link to={`/pet_applications/${petId}/${token}`} >
                             <small >See applications</small>
-                        </a>
+                        </Link>
 
                     </Col>
 

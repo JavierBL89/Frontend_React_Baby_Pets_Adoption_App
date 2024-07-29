@@ -35,7 +35,7 @@ const NavbarDropDown = ({ id }) => {
         >
             {/***************** Profile **********/}
             <NavDropdown.Item as="span">
-                <Link id="profile_link_nav" href={`/profile/${token}`} >Profile</Link>
+                <Link id="profile_link_nav" to={`/profile/${token}`} >Profile</Link>
             </NavDropdown.Item>
 
             {/***************** My Listings (Notifications badge must be always there) **********/}
