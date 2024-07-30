@@ -106,8 +106,6 @@ input:-webkit-autofill,
     color: #5A4633;
 }
 
-
-/******************************************* REGISTRATION FORM */
 #update_pet_wrapper h6,
 #reg_heading {
     font-weight: 700;
@@ -134,6 +132,33 @@ input:-webkit-autofill,
     color: #5A4633;
     font-style: italic;
     opacity: 0.8;
+}
+
+
+/***** Override autofill default style behavoir ****/
+/**
+* Took the code lines from the below link
+/* https://stackoverflow.com/questions/2338102/override-browser-form-filling-and-input-highlighting-with-html-css 
+*/
+input:-webkit-autofill,
+#login_form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px #ffffff inset;
+    /* Change the color to your own background color */
+    -webkit-text-fill-color: #000000;
+    -webkit-text-fill-backgorund-color: #FFFFF0;
+    -webkit-text-fill-font-size: 0.513rem;
+}
+
+
+
+/*************** REGISTRATION FORM */
+#register_form_wrapper .reg_form_details_holder {
+    margin-top: 7px;
+    margin-bottom: 7x;
+}
+
+#reg_form input {
+    font-size: 14px;
 }
 
 #register_form_wrapper button[type="submit"] {
@@ -284,39 +309,6 @@ input:-webkit-autofill,
     margin-bottom: 30px;
 }
 
-/************ UPDATE PET */
-#update_pet_wrapper {
-    padding: 15px;
-
-}
-
-#update_pet_wrapper .update_pet_info_wraper {
-    margin-bottom: 50px;
-}
-
-#update_pet_wrapper textarea {
-    width: 90%;
-    margin: 0 auto;
-}
-
-#update_pet_form small {
-    margin-left: 15px;
-    color: #C19A6B;
-}
-
-#update_pet_form label {
-    margin-left: 15px;
-}
-
-#update_pet_form label[for="formComment"] {
-    margin-left: 40px;
-}
-
-#update_pet_form input {
-    width: 80%;
-    margin-left: 15px;
-}
-
 /************************ PROFILE MANAGEMENT PAGE */
 #profile_dashboard_wrapper #profile_dashboard_spinner_holder {
     text-align: center;
@@ -405,7 +397,6 @@ input:-webkit-autofill,
     color: #5A4633;
     font-weight: 700;
 }
-
 
 #delete_user_button {
     color: #453220;
@@ -524,31 +515,13 @@ input:-webkit-autofill,
         width: 60%;
     }
 
-
-    /********* UPDATE PET */
-    #update_pet_container {
-        width: 95%;
-    }
-
-    #update_pet_form label {
-
-        margin-left: 0;
-    }
-
-    #update_pet_form input {
-        width: 100%;
-        margin-left: 0;
-    }
-
     /********** PROFILE MANAGEMENT */
-
     #email_update_wrapper form input,
     #personal_details_update_wrapper form input {
         margin-bottom: 20px;
         width: 90%;
         margin: 0 auto
     }
-
 
 }
 
@@ -601,48 +574,6 @@ input:-webkit-autofill,
         height: 80px;
         width: 98%;
         margin: 20px auto 30px;
-    }
-
-    /************ UPDATE PET */
-    #update_pet_wrapper {
-        padding: 15px;
-
-    }
-
-    #update_pet_container {
-        width: 95%;
-    }
-
-    /* #update_pet_wrapper .update_pet_info_holder {
-        padding-left: 0;
-        padding-right: 0;
-    } */
-
-    #update_pet_wrapper .update_pet_info_wraper {
-        margin-bottom: 50px;
-    }
-
-    #update_pet_wrapper textarea {
-        width: 90%;
-    }
-
-    #update_pet_form small {
-        margin-left: 0;
-        color: #C19A6B;
-    }
-
-    #update_pet_form label {
-        margin-left: 0;
-    }
-
-    #update_pet_form label[for="formComment"] {
-        margin-left: 20px;
-        font-size: 11px;
-    }
-
-    #update_pet_form input {
-        width: 80%;
-        margin-left: 0;
     }
 
     /************************ PROFILE MANAGEMENT PAGE */

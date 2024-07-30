@@ -58,6 +58,67 @@ h6 {
     letter-spacing: 0.8px;
 }
 
+#pet_applications_message_holder,
+#my_applications_message_holder {
+    width: 100%;
+    margin: 60px auto;
+}
+
+#pet_applications_message_holder #pet_applications_message,
+#my_applications_message_holder,
+#my_applications_message {
+    text-align: center;
+}
+
+
+#create_pet_wrapper,
+#register_form_wrapper,
+#update_pet_wrapper {
+    min-height: fit-content;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#create_pet_container,
+#register_form_container,
+#register_form_wrapper>.row {
+    margin: 0 auto;
+    width: 80%;
+}
+
+#pet_adoption_wrapper #adoption_form_details label,
+#pet_adoption_wrapper #form_textarea label,
+#list_pet_form label,
+#reg_form label,
+#login_form {
+    font-size: 15px;
+}
+
+#list_pet_form label,
+#reg_form label,
+#login_form {
+    margin-left: 15px;
+}
+
+#create_pet_container .parents_info_holder,
+#register_form_wrapper #register_form_container {
+    padding: 15px;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: grey;
+    margin-bottom: 10px;
+}
+
+.form-control:focus,
+.form-control:active:autoc .form-control:active {
+    background: transparent;
+}
+
+/* Custom CSS to remove the background color of filled inputs */
+#login_form #login_email:valid {
+    background-color: transparent !important;
+}
+
 /* Remove padding from all containers */
 .container,
 .container-fluid {
@@ -76,6 +137,9 @@ h6 {
     padding-left: 0;
     padding-right: 0;
 }
+
+
+
 
 /****  NOTIFICATIONS  ***/
 .row {

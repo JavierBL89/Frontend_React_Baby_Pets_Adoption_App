@@ -1,0 +1,312 @@
+/*
+* Primary:
+* Light Beige #F5EDE3
+* Dark Brown  #5A4633
+*
+*Secundary:
+* Soft Beige #DCC5A1
+* Tan #C19A6B
+* Dark Black #050505
+***/
+
+/******************* MY APPLICATIONS PAGE **/
+#my_applications_list_wrapper {
+    width: 950px;
+    min-height: 300px;
+    margin: 0 auto 100px;
+    padding: 0;
+}
+
+#my_applications_spinner_holder {
+    height: inherit;
+    width: inherit;
+    padding: 0;
+    margin: 40px;
+}
+
+#my_applications_spinner_holder .spinner-border {
+    height: 80px;
+    width: 80px;
+    color: #9E7F66;
+    margin: 0 auto;
+    position: relative;
+    top: 40%;
+}
+
+#my_applications_wrapper #my_applications_list_holder {
+    width: 80%;
+    height: fit-content;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+#my_applications_list_holder {
+    border: solid 1px black;
+    border-radius: 5px;
+    min-height: 400px;
+    height: fit-content;
+    padding-bottom: 20px;
+}
+
+#my_applications_wrapper .applicationCard_wrapper .application_details_row {
+    height: 33%;
+    position: relative;
+    top: 20px;
+}
+
+#my_applications_wrapper .applicationCard_wrapper .applicationCard_container {
+    border: solid 1px grey;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: #C19A6B;
+}
+
+/* Custom CSS to hide the dropdown arrow */
+.no-arrow::after {
+    display: none !important;
+}
+
+#my_applications_wrapper .applicationCard_wrapper .application_img_holder {
+    padding: 0;
+
+}
+
+#my_applications_wrapper .applicationCard_wrapper .application_img_holder img {
+    height: 198px;
+    width: 100%;
+    border-top-left-radius: 10px;
+}
+
+#my_applications_wrapper .applicationCard_wrapper .drop_application_dropdown {
+    text-align: center;
+    background-color: beige;
+    margin-bottom: 0px;
+    padding: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 100%;
+    background-color: #9E7F66;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#my_applications_wrapper .application_drop_holder .dropdown-menu {
+    padding: 0;
+    width: inherit;
+}
+
+#my_applications_wrapper .application_drop_holder .dropdown-item {
+    text-align: center;
+    background-color: #fae6d3;
+    padding: 10px;
+}
+
+#my_applications_wrapper .application_drop_holder .dropdown-item .drop_application_warning {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#my_applications_wrapper .application_details_row small {
+    color: #f5ebe3;
+}
+
+#my_applications_wrapper .application_details_row p {
+    color: #5A4633;
+    font-weight: 600;
+}
+
+#my_app_price {
+    margin-left: 15px;
+}
+
+/************************************************* (min-width: 768px) and (max-width: 990px) ****/
+@media (min-width: 768px) and (max-width: 990px) {
+
+    /******************* MY APPLICATIONS PAGE **/
+    #my_applications_list_wrapper {
+        min-width: inherit;
+    }
+
+    #my_applications_spinner_holder {
+        height: inherit;
+        width: inherit;
+        padding: 0;
+        margin: 0;
+    }
+
+    #my_applications_spinner_holder .spinner-border {
+        height: 80px;
+        width: 80px;
+        color: #9E7F66;
+        margin: 0 auto;
+        position: relative;
+        top: 40%;
+    }
+
+    #my_applications_wrapper .applicationCard_wrapper .application_details_row {
+        height: 33%;
+        padding-top: 20px;
+    }
+
+    #my_applications_wrapper .applicationCard_wrapper .applicationCard_container {
+        border: solid 1px grey;
+        border-radius: 10px;
+        margin-top: 30px;
+    }
+
+    /* Custom CSS to hide the dropdown arrow */
+    .no-arrow::after {
+        display: none !important;
+    }
+
+
+    #my_applications_wrapper #my_applications_list_holder {
+        width: 95%;
+        height: fit-content;
+        padding: 10px;
+        margin: 0 auto;
+    }
+
+
+    #my_applications_wrapper .applicationCard_wrapper .application_details_row {
+        height: 30%;
+        padding-top: 0px;
+        position: relative;
+        top: 12px;
+    }
+
+    #my_applications_wrapper .applicationCard_wrapper .application_img_holder {
+        padding: 0;
+    }
+
+    #my_applications_wrapper .applicationCard_wrapper .application_img_holder img {
+        height: auto;
+        width: 100%;
+        border-top-left-radius: 10px;
+    }
+
+    #my_app_free_adoption {
+        margin-bottom: 0;
+        position: relative;
+        top: 2px;
+    }
+
+    #my_applications_wrapper .applicationCard_wrapper .drop_application_dropdown {
+        text-align: center;
+        background-color: beige;
+        margin-bottom: 0px;
+        padding: 4px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        letter-spacing: 1px;
+        width: 100%;
+        background-color: #9E7F66;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    #my_applications_wrapper .application_drop_holder .dropdown-menu {
+        padding: 0;
+        width: inherit;
+    }
+
+    #my_applications_wrapper .application_drop_holder .dropdown-item {
+        text-align: center;
+        background-color: #fae6d3;
+        padding: 10px;
+    }
+
+    #my_applications_wrapper .application_drop_holder .dropdown-item .drop_application_warning {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    #my_applications_wrapper .application_details_row small {
+        color: #f5ebe3;
+    }
+
+    #my_applications_wrapper .application_details_row p {
+        color: #5A4633;
+        font-weight: 600;
+    }
+
+    #my_app_price {
+        margin-left: 15px;
+    }
+
+}
+
+/*********************************     @media (min-width: 576px) and (max-width: 775px)  *******/
+@media (min-width: 575px) and (max-width: 775px) {
+
+
+    /******************* MY APPLICATIONS PAGE **/
+    #my_applications_list_wrapper {
+        width: 100%;
+        height: fit-content;
+    }
+
+    #my_applications_wrapper #my_applications_list_holder {
+        width: 100%;
+        height: inherit;
+    }
+
+    #my_applications_wrapper #my_applications_list_holder .application_details_row {
+        padding: 5px;
+    }
+
+    #my_applications_wrapper .applicationCard_wrapper .application_img_holder img {
+        height: 100%;
+        width: 100%;
+        border-top-left-radius: 10px;
+    }
+
+    #my_applications_wrapper .applicationCard_wrapper .application_details_row {
+        position: relative;
+        top: 10px;
+    }
+
+}
+
+
+/*********************************     @media (min-width: 356px) and (max-width: 575px)  *******/
+@media (min-width: 356px) and (max-width: 575px) {
+
+
+    /******************* MY APPLICATIONS PAGE **/
+    #my_applications_list_wrapper {
+        width: 95%;
+        height: fit-content;
+    }
+
+    #my_applications_wrapper #my_applications_list_holder {
+        width: 100%;
+        height: inherit;
+    }
+
+    #my_applications_wrapper #my_applications_list_holder .application_details_row {
+        padding: 3px;
+    }
+
+    #my_applications_wrapper .applicationCard_wrapper .application_img_holder img {
+        height: 100%;
+        width: 100%;
+        border-top-left-radius: 10px;
+    }
+
+    #my_applications_wrapper .applicationCard_wrapper .application_details_row {
+        position: relative;
+        top: 10px;
+    }
+
+    #my_applications_wrapper .application_details_row small {
+        font-size: 15px;
+    }
+
+    #my_applications_wrapper .application_details_row p {
+        font-size: 16px;
+    }
+}

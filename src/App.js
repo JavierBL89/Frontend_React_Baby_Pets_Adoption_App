@@ -26,9 +26,10 @@ import MyApplications from "../src/components/management/components/applications
 import PetApplications from "../src/components/management/components/applications_management/PetApplications";
 import PetUpdate from "../src/components/pet/components/pet_update/PetUpdate";
 
-import "./css/petListing.css";
+import "./css/petListings.css";
 import "./css/forms.css";
-import "./css/applications.css";
+import "./css/myApplications.css";
+import "./css/petApplications.css";
 import "./css/style.css";
 import "./css/common.css";
 
@@ -59,8 +60,7 @@ const PrivateRoute = ({ element: Component, ...rest }) => {
 
 function App() {
   return (
-    // <Router basename="/Frontend_React_Baby_Pets_Adoption_App">
-    <Router>
+    <Router basename="/Frontend_React_Baby_Pets_Adoption_App">
       <ScrollToTop />
 
       <NotificationsProvider >

@@ -14,7 +14,6 @@
     margin-bottom: 350px;
 }
 
-
 #categories_wrapper #categories_holder {
     width: 50%;
 }
@@ -56,13 +55,9 @@
 #categories_wrapper .category_tittle {
     font-weight: bold;
     color: #5A4633;
-
 }
 
-
-
 /*************** ADOPTION INFORMATION SECTION */
-
 #adoption_info_wrapper {
     margin: 200px auto;
 }
@@ -162,12 +157,10 @@
 
 @media (min-width: 768px) and (max-width: 990px) {
 
-
     /************************************ PET CATEGORIES */
     #categories_wrapper {
         margin-bottom: 350px;
     }
-
 
     #categories_wrapper #categories_holder {
         width: 80%;
@@ -204,9 +197,7 @@
         height: 183px;
     }
 
-
     /*************** ADOPTION INFORMATION SECTION */
-
     #adoption_info_wrapper {
         margin-top: 100px;
         margin-bottom: 100px;
@@ -296,7 +287,6 @@
 /*********************************     @media (min-width: 356px) and (max-width: 575px)  *******/
 @media (min-width: 356px) and (max-width: 575px) {
 
-
     /************************************ PET CATEGORIES */
     #categories_wrapper {
         margin-bottom: 250px;
@@ -346,9 +336,7 @@
         bottom: 15px;
     }
 
-
     /*************** ADOPTION INFORMATION SECTION */
-
     #adoption_info_wrapper {
         margin-top: 100px;
         margin-bottom: 80px;
@@ -366,7 +354,6 @@
     #adoption_info_wrapper .info_holder {
         padding: 20px;
         font-size: 20px;
-
     }
 
     #adoption_info_wrapper h4 {
