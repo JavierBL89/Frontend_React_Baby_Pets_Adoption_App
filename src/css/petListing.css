@@ -926,6 +926,10 @@ input:-webkit-autofill,
         width: 80%;
         min-height: fit-content;
     }
+
+    #my_listings_wrapper #post_action_message_holder {
+        margin-bottom: 0;
+    }
 }
 
 /*********************************     @media (min-width: 356px) and (max-width: 575px)  *******/

@@ -21,7 +21,7 @@ import { FeedbackContext } from "../../../../context/FeedBackContext";
  * 
  * @returns  `DetailsUpdateComponent` component 
  */
-const DetailsUpdateComponent = () => {
+const DetailsUpdateComponent = ({ onLoad }) => {
 
     const [postActionMessage, setPostActionMessage] = useState(FeedbackContext)
 
@@ -63,7 +63,7 @@ const DetailsUpdateComponent = () => {
         formDataToSend.append('location', location);
 
         if (token) {
-
+            onLoad(true);
             setMessage(false);
 
             try {
@@ -76,9 +76,10 @@ const DetailsUpdateComponent = () => {
                 });
 
                 if (response.status === 200) {
+                    onLoad(false);
                     setPostActionMessage("Your details have been successfylly updated!.");
-                    localStorage.setItem('feedbackMessage', "Your details have been successfylly updated!");
-                    window.location.reload();
+                    window.scrollTo(0, 0);
+                    clearDataInput()
                 }
                 else {
                     console.error("Form submission failed:", response.data);
@@ -88,6 +89,8 @@ const DetailsUpdateComponent = () => {
             } catch (error) {
                 console.error('Something went wrong! Error submitting form:', error.message);
             }
+            onLoad(false);
+
         } else {
             setMessage("Authentication needed. Form could not be submited!")
         }
@@ -126,6 +129,17 @@ const DetailsUpdateComponent = () => {
     }
 
 
+
+
+    /***
+    * clear input fields
+    */
+    const clearDataInput = () => {
+        setName("");
+        setLastName("");
+        setLocation("");
+
+    };
     return (
         <Container id="personal_details_update_wrapper">
             <Container className="personal_details_update_container">

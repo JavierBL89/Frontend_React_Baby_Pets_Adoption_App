@@ -4,6 +4,7 @@ import Heading from "../../../common/Heading";
 import instance from "../../../../scripts/axiosConfig";
 import TextComponent from "../../../common/TextComponent";
 import { FeedbackContext } from "../../../../context/FeedBackContext";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -18,15 +19,17 @@ import { FeedbackContext } from "../../../../context/FeedBackContext";
  * 
  * @returns  `EmailChangeComponent` component 
  */
-const EmailChangeComponent = () => {
+const EmailChangeComponent = ({ onLoad }) => {
 
-    const [setPostActionMessage] = useState(FeedbackContext)
+    const { setPostActionMessage } = useContext(FeedbackContext);
 
     const [message, setMessage] = useState(false);   // failedMessage state
     const [email, setEmail] = useState("");
     const [confirmEmail, setConfirmEmail] = useState("");
     const [emailMessage, setEmailMessage] = useState("");
     const [confirmEmailMessage, setConfirmEmailMessage] = useState("");
+
+    const navigate = useNavigate();
 
     var token = localStorage.getItem('token');  // grab current token from locat storage
 
@@ -40,12 +43,20 @@ const EmailChangeComponent = () => {
 
         if (email !== confirmEmail) {
             setConfirmEmailMessage("Email addresses do not match!");
-            return;
+            return false;
         } else {
-            setEmailMessage("Match!");
+            setConfirmEmailMessage("");
+            return true;
         }
     }
 
+    /***
+    * clear input fields
+    */
+    const clearDataInput = () => {
+        setEmail("");
+        setConfirmEmail("");
+    };
 
     /***
      * Method handles form submission.
@@ -57,29 +68,35 @@ const EmailChangeComponent = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        checkEmail()     // check if the email address and confrim email address match
+        if (!checkEmail()) {
+            return;
+        }
 
         if (token) {
 
+            onLoad(true);
+            setConfirmEmailMessage("") // clear any data
             setMessage(false);  // reset to false
-
             try {
                 // POST request with headers set to accept and handle multipart files on server side
                 const response = await instance.put(`/account_management/update_email?token=${token}&email=${email}`);
 
                 if (response.status === 200) {
+                    onLoad(true);
+                    clearDataInput();
+                    window.scrollTo(0, 0);
                     setPostActionMessage("Your email address was successfylly updated!.");
-                    localStorage.setItem('feedbackMessage', "Your email address was successfylly updated!");
-                    window.location.reload();
+
                 }
                 else {
                     console.error("Form submission failed:", response.data);
                     setMessage("Form could not be submited. A server error occured. Please try again or contact admin to inform about the problem. ")
-                    setMessage(true)
                 }
             } catch (error) {
                 console.error('Something went wrong! Error submitting form:', error.message);
             }
+            onLoad(false);
+
         } else {
             setMessage("Authentication needed. Form could not be submited!")
         }
@@ -99,7 +116,7 @@ const EmailChangeComponent = () => {
                     <Row id="email_update_holder">
                         {/***************** {  email } ********/}
                         <Form.Label>Email address</Form.Label>
-                        <Form.Group controlId="formLocation">
+                        <Form.Group controlId="formEmail">
                             <Form.Control
                                 type="email"
                                 name="email"
@@ -115,7 +132,7 @@ const EmailChangeComponent = () => {
                     <Row id="confirm_email_update_holder">
                         {/***************** { confirm email } ********/}
                         <Form.Label>Confirm email address</Form.Label>
-                        <Form.Group controlId="formLocation">
+                        <Form.Group controlId="formConfirmEmail">
                             <Form.Control
                                 type="text"
                                 name="confirmEmail"

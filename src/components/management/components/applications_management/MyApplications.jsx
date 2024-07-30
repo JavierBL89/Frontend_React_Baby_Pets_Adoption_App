@@ -99,7 +99,6 @@ const MyApplications = () => {
      */
     const handleDrop = async (applicationId) => {
 
-
         if (!token) {
             setMessage("Operation cannot be processed. Missing authenication token")
             return;

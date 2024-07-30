@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { AuthContext } from "../../../../context/AuthContext";
 import { Container, Row, Spinner } from "react-bootstrap";
@@ -26,8 +26,8 @@ const ProfileDashBoard = () => {
 
 
     const { isAuthenticated } = useContext(AuthContext);
-    const { postActionMessage } = useContext(FeedbackContext);
-    const [message, setMessage] = useState(false);   // failedMessage state
+    const { postActionMessage, setPostActionMessage } = useContext(FeedbackContext);
+    const [message, setMessage] = useState(false);   // Message state
 
     const [myDetails, setMyDetails] = useState(false);
     const [emailChange, setEmailChange] = useState(false);
@@ -67,18 +67,18 @@ const ProfileDashBoard = () => {
                 { /*************** Post-action Feedback message  *********************/}
                 <Row >
                     <Container id="post_action_message_holder">
-                        {!loading && postActionMessage && (
-                            <PostActionMessage text={postActionMessage} />
-                        )}
+                        { /************ Loading spinner  ************/}
+                        {!loading ?
+                            postActionMessage && (
+                                <PostActionMessage text={postActionMessage} />
+                            )
+                            :
+                            <Row id="profile_dashboard_spinner_holder">
+                                <Spinner animation="border" />
+                            </Row>
+                        }
                     </Container>
                 </Row>
-                { /************ Loading spinner  ************/}
-                {loading &&
-                    <Row id="profile_dashboard_spinner_holder">
-                        <Spinner animation="border" />
-                    </Row>
-                }
-
 
                 { /*************** dashboard options component  *********************/}
                 <Row>
@@ -89,7 +89,7 @@ const ProfileDashBoard = () => {
                         <DetailsUpdateComponent />
                     }
                     {emailChange &&
-                        <EmailUpdateComponent />
+                        <EmailUpdateComponent onLoad={setLoading} />
                     }
                 </Row>
 
