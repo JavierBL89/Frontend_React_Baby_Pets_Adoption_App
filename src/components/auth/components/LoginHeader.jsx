@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import instance from '../../../scripts/axiosConfig';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import SocialLogin from "./SocialLogin";
 import { AuthContext } from '../../../context/AuthContext';
 import { Col, Container, Row, Form } from "react-bootstrap";
@@ -168,13 +168,11 @@ const Login = () => {
                                     <button type="submit" id="login_submit_button" className="btn" >LogIn!</button>
                                 </Col>
                                 <Col >
-                                    <a id="signUp" href="/register">SignUp</a>
+                                    <Link id="signUp" to="/register">SignUp</Link>
 
                                 </Col>
                                 <a href="#nopath" id="forgot_password" onClick={resetPassword}>Forgot password</a>
-
                             </Row>
-
                         </Form>
                         {message && <p id="login_message">{message}</p>}
                         <div>

@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.yourwebsite.com/</loc>
+    <loc>https://javierbl89.github.io/Frontend_React_Baby_Pets_Adoption_App</loc>
     <lastmod>2024-07-23</lastmod>
     <priority>1.0</priority>
   </url>
-  <!-- Add more URLs as needed -->
+  <!--  -->
+   <url>
+    <loc>https://javierbl89.github.io/Frontend_React_Baby_Pets_Adoption_App/about</loc>
+    <lastmod>2024-07-23</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <!--  -->
+   <url>
+    <loc>https://javierbl89.github.io/Frontend_React_Baby_Pets_Adoption_App/services</loc>
+    <lastmod>2024-07-23</lastmod>
+    <priority>1.0</priority>
+  </url>
 </urlset>

@@ -169,7 +169,7 @@ h6 {
 
 #post_action_message_wrapper #post_action_message_container h6 {
     font-weight: 500;
-    color: #5A4633;
+    color: #F5EDE3;
     font-family: "Roboto";
     letter-spacing: 0.8px;
 }
@@ -755,7 +755,6 @@ h6 {
     }
 
     /**** NOTIFIACTIONS */
-    #post_action_message_wrapper #post_action_message_container,
     #notification_message_container,
     #only_subscribed_message {
         width: 70%;
