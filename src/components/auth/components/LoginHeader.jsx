@@ -1,11 +1,10 @@
 import { useState, useContext } from "react";
 import instance from '../../../scripts/axiosConfig';
-import { Link, useNavigate } from 'react-router-dom'
-import SocialLogin from "./SocialLogin";
+import { Link } from 'react-router-dom'
 import { AuthContext } from '../../../context/AuthContext';
 import { Col, Container, Row, Form } from "react-bootstrap";
-import Heading from "../../common/Heading";
 import ButtonComponent from "../../common/ButtonComponent";
+
 import { FeedbackContext } from "../../../context/FeedBackContext";
 
 /**

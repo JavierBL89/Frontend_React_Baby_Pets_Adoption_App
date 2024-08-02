@@ -1,9 +1,5 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import { Container, Navbar, Nav } from "react-bootstrap";
-import NavLinkComponent from "./NavLinkComponent";
-import NavbarDropDown from "./NavbarDropdown";
-import LogInDropDown from "./LogInDropDown";
+import { Container } from "react-bootstrap";
 import Heading from "./Heading";
 import { FeedbackContext } from "../../context/FeedBackContext";
 

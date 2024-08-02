@@ -2,9 +2,6 @@ import React from "react";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import ImageComponent from "../../../common/ImageComponent";
 import TextComponent from "../../../common/TextComponent";
-import { MdOutlineDelete } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
-
 
 
 /***

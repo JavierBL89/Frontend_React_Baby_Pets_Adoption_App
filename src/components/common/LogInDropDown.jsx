@@ -3,8 +3,6 @@ import { Nav, NavDropdown } from "react-bootstrap";
 import Login from "../auth/components/LoginHeader";
 
 
-
-
 const LogInDropDown = ({ id }) => {
 
     return (

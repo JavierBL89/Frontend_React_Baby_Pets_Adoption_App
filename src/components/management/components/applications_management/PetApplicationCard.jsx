@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Accordion, Stack } from "react-bootstrap";
-import ImageComponent from "../../../common/ImageComponent";
+import { Container, Row, Col } from "react-bootstrap";
 import TextComponent from "../../../common/TextComponent";
-import { MdOutlineDelete } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
+
 import ButtonComponent from "../../../common/ButtonComponent";
 import ViewApplicationComponent from "./ViewApplicationComponent";
 

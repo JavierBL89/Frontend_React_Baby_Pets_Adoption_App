@@ -1,10 +1,8 @@
 import React, { useCallback, useEffect, useState, useContext } from "react";
 import { Container, Row, Col, Stack, Spinner, Button } from "react-bootstrap";
-import Heading from "../../../common/Heading";
 import { useNavigate, useParams } from "react-router-dom";
 import instance from "../../../../scripts/axiosConfig";
 import TextComponent from "../../../common/TextComponent";
-import ButtonComponent from "../../../common/ButtonComponent";
 import PetApplicationCard from "./PetApplicationCard";
 import ApplicationStatusTabComponent from "./ApplicationStatusTabComponent";
 import { FeedbackContext } from "../../../../context/FeedBackContext";

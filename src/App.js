@@ -1,8 +1,5 @@
 
-import { useContext, useRef, useEffect } from "react";
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 
 import VerifyAccount from "./components/auth/components/VerifyAccount";
 import LoginPage from './components/auth/components/LoginPage';
@@ -33,7 +30,7 @@ import "./css/petApplications.css";
 import "./css/style.css";
 import "./css/common.css";
 
-import { AuthProvider, AuthContext } from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 import { DataPetProvider } from "./context/DataPetContext";
 import { FeedbackProvider } from "./context/FeedBackContext";
 import ProfileDashBoard from "./components/management/components/account_management/ProfileDashBoard";
@@ -44,23 +41,12 @@ import Services from "./components/Services";
 import Contact from "./components/Contact";
 
 
-/***
- * PrivateRoute component to protect routes that require authentication
- */
-const PrivateRoute = ({ element: Component, ...rest }) => {
-
-  const { isAuthenticated } = useContext(AuthContext);
-
-  return (
-    isAuthenticated ? <Component {...rest} /> : <Navigate to="/login" />
-  )
-};
-
 
 
 function App() {
   return (
-    <Router basename="/Frontend_React_Baby_Pets_Adoption_App">
+    // <Router basename="/Frontend_React_Baby_Pets_Adoption_App">
+    <Router>
       <ScrollToTop />
 
       <NotificationsProvider >

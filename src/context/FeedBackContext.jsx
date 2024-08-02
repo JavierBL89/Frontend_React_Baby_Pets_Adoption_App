@@ -1,7 +1,6 @@
 //
-import React, { useState, useEffect, createContext, useCallback } from 'react';
-import { jwtDecode } from 'jwt-decode'; // Correct import
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, createContext } from 'react';
+
 
 // create a context for authentication
 const FeedbackContext = createContext();

@@ -1,6 +1,5 @@
 //
-import React, { useState, useEffect, createContext, useCallback } from 'react';
-import { jwtDecode } from 'jwt-decode'; // Correct import
+import React, { useState, createContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 // create a context for authentication
@@ -24,19 +23,6 @@ const NotificationsProvider = ({ children }) => {
     const [notificationsMessage, setNotificationsMessage] = useState();
     const [realTimeMessages, setRealTimeMessage] = useState([]);
     const [notificationsCounter, setNotificationsCounter] = useState(0);
-
-    const location = useLocation();
-    const navigate = useNavigate();
-
-    // useEffect to check the authentication status 
-    // useEffect(() => {
-    //     setMyListingNotifications(myListingNotifications);
-    //     setAppStatusNotifications(appStatusNotifications);
-
-    //     let counter = (myListingNotifications.length + appStatusNotifications.length) - 1;
-    //     setNotificationsCounter(counter);
-
-    // }, [setMyListingNotifications, setAppStatusNotifications]);
 
 
     // pass the authentication state and functions to the component tree

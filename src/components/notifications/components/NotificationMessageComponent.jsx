@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { FaCheck } from "react-icons/fa";
 import { NotificationsContext } from "../../../context/NotificationsContext";
 import Heading from "../../common/Heading";
-import instance from "../../../scripts/axiosConfig";
 
 
 /**

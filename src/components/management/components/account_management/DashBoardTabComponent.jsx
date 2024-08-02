@@ -1,8 +1,6 @@
-import React, { useState, useContext, } from "react";
-import petTagsData from "../../../../petTagsData";
-import { Container, Row, Col, Tab, Tabs, Button } from "react-bootstrap";
-import { DataPetContext } from "../../../../context/DataPetContext";
-import { IoIosRemoveCircle } from "react-icons/io";
+import React, { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+
 import ButtonComponent from "../../../common/ButtonComponent";
 
 

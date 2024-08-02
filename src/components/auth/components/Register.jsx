@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import axios from '../../../scripts/axiosConfig';
-import { useNavigate, useLocation } from 'react-router-dom'
-import { AuthContext } from '../../../context/AuthContext';
+import { useNavigate } from 'react-router-dom'
 import { Row, Col, Form, Container } from 'react-bootstrap';
-import ButtonComponent from '../../common/ButtonComponent';
 import Heading from '../../common/Heading';
 
 

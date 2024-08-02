@@ -1,12 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Container, Navbar, Nav, Stack, Row } from "react-bootstrap";
-import LogoutButton from "../auth/components/LogoutButton";
-import NavLinkComponent from "./NavLinkComponent";
 import { Link } from "react-router-dom";
-
-
-
 
 
 /* 

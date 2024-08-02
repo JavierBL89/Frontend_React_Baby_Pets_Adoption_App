@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useState, useContext } from "react";
 import { Container, Row, Spinner, Button } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import instance from "../../../../scripts/axiosConfig";
 import TextComponent from "../../../common/TextComponent";
 import MyApplicationCard from "./MyApplicationCard";
 import { FeedbackContext } from "../../../../context/FeedBackContext";
 import PostActionMessage from "../../../common/PostActionMessage";
-import NotificationMessageComponent from "../../../notifications/components/NotificationMessageComponent";
 import useFetchNotifications from "../../../hooks/data/fetchNotifications";
 import SpecificNotificationsComponent from "../../../notifications/components/SpecificNotificationsComponent";
 

@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect, useCallback } from "react";
 import instance from "../../../scripts/axiosConfig";
 import { useParams } from "react-router-dom";
-import { AuthContext } from "../../../context/AuthContext";
 import { NotificationsContext } from "../../../context/NotificationsContext";
 
 
