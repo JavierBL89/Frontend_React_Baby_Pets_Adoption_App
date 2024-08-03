@@ -1,9 +1,8 @@
 import { useState, useContext } from "react";
 import instance from '../../../scripts/axiosConfig';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../../context/AuthContext';
-import { Col, Container, Row, Form } from "react-bootstrap";
-import ButtonComponent from "../../common/ButtonComponent";
+import { Col, Container, Row, Form, Spinner } from "react-bootstrap";
 
 import { FeedbackContext } from "../../../context/FeedBackContext";
 
@@ -29,7 +28,10 @@ const Login = () => {
     const [emailMessage, setEmailMessage] = useState("");
     const [passwordMessage, setPasswordMessage] = useState("");
     const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
 
+
+    const navigate = useNavigate();
 
     /**
      * Handles form input changes and updates the credentials state
@@ -44,12 +46,19 @@ const Login = () => {
 
     /**
      *  Handles the initial step for the password reset functionality
-     *  Grabs the entered email and sends it to backend 
+     *  Grabs the entered email and sends it to backend to verify that user is actually already registered.
      *  Uses axios for making the HTTP reuest
      * 
      * @param e the form submit event
      */
     const resetPassword = async () => {
+
+        setMessage(""); // clear existing message
+        setLoading(true);
+        // ensure email field is filled
+        if (!credentials.email) {
+            setEmailMessage("Please enter your email and try again.")
+        }
 
         if (credentials.email !== "") {
             try {
@@ -57,27 +66,33 @@ const Login = () => {
                 const response = await instance.post('/auth/forgot_password', { email: credentials.email });
 
                 // check if response exists
-                if (response.status === 200 && response.data) {
-                    // set the message state with the response data
-                    setMessage(response.data);
-                    // redirect to home page after successful login
-                } else {
-                    setMessage(response.data);
+                if (response.status === 200 || response.status === 201) {
+                    setLoading(false);
+                    // extract the message from the response object
+                    const responseMessage = response.data.message;
+                    navigate(`/verify_account/${responseMessage}`);
+                } else if (response.status !== 200 || response.status !== 201) {
+                    // extract the message from the response object
+                    const responseMessage = response.data.message;
+                    setMessage(responseMessage);
+
                 }
-
+                setLoading(false);
             } catch (error) {
-
                 // check if error response exists
                 if (error.response && error.response.data) {
+                    console.log('Error response data:', error.response.data);
+
+                    // extract the message from the error response object
+                    const responseMessage = error.response.data.message || "Something went wrong. Please try again.";
                     // set the message state with the error response data
-                    setMessage(error.response.data);
+                    setMessage(responseMessage);
                 } else {
                     // set error message
                     setMessage("Something went wrong. Please try again.");
                 }
             }
-        } else {
-            setMessage("Please enter an email address and click 'fogot password'.");
+            setLoading(false);
         }
     }
 
@@ -106,7 +121,6 @@ const Login = () => {
                 login(response.data.token, response.data.registeredBy, response.data.userName);
             }
 
-
         } catch (error) {
             // check if error response exists
             if (error.response && error.response.status === 401) {
@@ -125,70 +139,69 @@ const Login = () => {
     return (
         <Container id="login_wrapper">
             <Container id="login_container">
-                <Row >
-                    {/* <Row >
-                        <Heading tagName="h2" id="login_title" text="Login" />
-                    </Row> */}
-                    <Row className="ps-0">
-                        <Form onSubmit={handleSubmit} id="login_form" className="ps-0">
-                            <Row className="ps-0">
-                                {/******** { email address } ********/}
-                                <Form.Group controlId="login_email">
-                                    <Form.Label>Email Address</Form.Label>
-                                    <Form.Control
-                                        type="email"
-                                        name="email"
-                                        value={credentials.email}
-                                        onChange={(e) => { handleCredentials(e) }}
-                                        required
-                                    />
-                                </Form.Group>
-                                {emailMessage && <p>{emailMessage}</p>}
 
-                            </Row>
-
-                            <Row className="ps-0">
-                                {/******** { password } ********/}
-                                <Form.Group controlId="login_password">
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control
-                                        type="password"
-                                        name="password"
-                                        value={credentials.password}
-                                        onChange={(e) => { handleCredentials(e) }}
-                                        required
-                                    />
-                                </Form.Group>
-                                {passwordMessage && <p>{passwordMessage}</p>}
-
-                            </Row>
-                            <Row id="login_action_holder">
-                                <Col >
-                                    <button type="submit" id="login_submit_button" className="btn" >LogIn!</button>
-                                </Col>
-                                <Col >
-                                    <Link id="signUp" to="/register">SignUp</Link>
-
-                                </Col>
-                                <a href="#nopath" id="forgot_password" onClick={resetPassword}>Forgot password</a>
-                            </Row>
-                        </Form>
-                        {message && <p id="login_message">{message}</p>}
-                        <div>
-                            {/*<SocialLogin></SocialLogin>*/}
-                        </div>
+                { /************ LOADING SPINNER  ************/}
+                {loading ?
+                    <Row id="my_applications_spinner_holder">
+                        <Spinner animation="border" />
                     </Row>
 
-                </Row>
+                    :
+                    <Row >
+                        <Row className="ps-0">
+                            <Form onSubmit={handleSubmit} id="login_form" className="ps-0">
+                                <Row className="ps-0">
+                                    {/******** { email address } ********/}
+                                    <Form.Group controlId="login_email">
+                                        <Form.Label>Email Address</Form.Label>
+                                        <Form.Control
+                                            type="email"
+                                            name="email"
+                                            value={credentials.email}
+                                            onChange={(e) => { handleCredentials(e) }}
+                                            required
+                                        />
+                                    </Form.Group>
+                                    {emailMessage && <p className="pb-0 mb-0">{emailMessage}</p>}
 
+                                </Row>
+
+                                <Row className="ps-0">
+                                    {/******** { password } ********/}
+                                    <Form.Group controlId="login_password">
+                                        <Form.Label>Password</Form.Label>
+                                        <Form.Control
+                                            type="password"
+                                            name="password"
+                                            value={credentials.password}
+                                            onChange={(e) => { handleCredentials(e) }}
+                                            required
+                                        />
+                                    </Form.Group>
+                                    {passwordMessage && <p>{passwordMessage}</p>}
+
+                                </Row>
+                                <Row id="login_action_holder">
+                                    <Col >
+                                        <button type="submit" id="login_submit_button" className="btn" >LogIn!</button>
+                                    </Col>
+                                    <Col >
+                                        <Link id="signUp" to="/register">SignUp</Link>
+
+                                    </Col>
+                                    <a href="#nopath" id="forgot_password" onClick={resetPassword}>Forgot password</a>
+                                </Row>
+                            </Form>
+                            {message && <p id="login_message">{message}</p>}
+                            <div>
+                                {/*<SocialLogin></SocialLogin>*/}
+                            </div>
+                        </Row>
+                    </Row>
+                }
             </Container>
-
         </Container>
     )
 };
 
 export default Login;
-
-
-
-<ButtonComponent type="submit" id="reg_submit_button" text="Go!" className="btn btn-primary" />

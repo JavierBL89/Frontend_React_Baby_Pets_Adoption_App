@@ -266,7 +266,7 @@ body {
     letter-spacing: 0.5px;
     color: #5A4633;
     font-family: "Roboto";
-    font-weight: light;
+    font-weight: 300;
     letter-spacing: 0.8px
 }
 
@@ -274,7 +274,7 @@ body {
 #pet_details_holder small {
     color: #C19A6B;
     font-family: "Roboto";
-    font-weight: light;
+    font-weight: 300;
     letter-spacing: 0.8px
 }
 
@@ -442,14 +442,14 @@ body {
 #adoption_form_accordion_wrapper #adoption_form_success_text {
     padding: 30px;
     color: #1b793f;
-    font-style: bold;
+    font-style: 700;
     text-align: center;
 }
 
 #adoption_form_accordion_wrapper #adoption_form_failed_text {
     padding: 30px;
     color: #b53c3c;
-    font-style: bold;
+    font-style: 700;
     text-align: center;
 }
 
@@ -1281,14 +1281,14 @@ body {
     #adoption_form_accordion_wrapper #adoption_form_success_text {
         padding: 30px;
         color: #1b793f;
-        font-style: bold;
+        font-style: 700;
         text-align: center;
     }
 
     #adoption_form_accordion_wrapper #adoption_form_failed_text {
         padding: 30px;
         color: #b53c3c;
-        font-style: bold;
+        font-style: 700;
         text-align: center;
     }
 

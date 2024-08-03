@@ -1,6 +1,6 @@
-//
+
 import React, { useState, createContext } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+
 
 // create a context for authentication
 const NotificationsContext = createContext();

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState, useContext } from "react";
-import { Container, Row, Col, Stack, Spinner, Button } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import instance from "../../../../scripts/axiosConfig";
 import TextComponent from "../../../common/TextComponent";
@@ -148,8 +148,7 @@ const PetApplications = () => {
         if (!notificationId || notificationId == null) {
             return
         }
-        console.log(token);
-        console.log(notificationId);
+
         try {
             // PUT request
             const response = await instance.put(`/notifications/markAsViewed?token=${token}&notificationId=${notificationId}`);
@@ -190,7 +189,6 @@ const PetApplications = () => {
     const loadMoreListings = () => {
         setPage(prevPage => prevPage + 1);
     };
-
 
 
     return (

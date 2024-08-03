@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from '../../../scripts/axiosConfig';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Container, Form, Row } from "react-bootstrap";
+import Heading from "../../common/Heading";
+import ButtonComponent from "../../common/ButtonComponent";
 
 
 
@@ -61,10 +64,9 @@ const PasswordReset = () => {
 
             // check if response exists
             if (response.status === 201 && response.data) {
-                // Set the message state with the response data
-                setMessage(response.data);
-                // Redirect to login page
-                navigate('/login')
+
+                // redirect to login page
+                navigate(`/login/${response.data}`)
             } else {
                 setMessage(response.data);
             }
@@ -82,19 +84,46 @@ const PasswordReset = () => {
         }
     }
     return (
-        <div>
-            <h2>Reset Password</h2>
-            <form onSubmit={handleSubmit}>
+        <Container id="reset_password_wrapper">
+            <Container id="reset_password_container">
+                <Heading tagName="h2" text="Reset Password" />
+                <Row>
+                    <Form onSubmit={handleSubmit} id="reset_password_form">
+                        <Row >
+                            {/******** { email address } ********/}
+                            <Form.Group controlId="reset_password">
+                                <Form.Label>New Password</Form.Label>
+                                <Form.Control
+                                    type="password"
+                                    name="password"
+                                    value={newPassword}
+                                    onChange={(e) => { setNewPassword(e.target.value) }}
+                                    required
+                                />
+                            </Form.Group>
+                        </Row>
 
-                <label>New Password</label>
-                <input type="password" value={newPassword} onChange={(e) => { setNewPassword(e.target.value) }} required />
-                <label>Re-enter new password</label>
-                <input type="password" value={confirmPassword} onChange={(e) => { checkPassword(e.target.value) }} required />
-                {passwordMessage && <p>{passwordMessage}</p>}
-                {newPassword === confirmPassword ? <button type="submit">Submit</button> : null}
+                        <Row >
+                            {/******** { password } ********/}
+                            <Form.Group controlId="confirm_reset_password">
+                                <Form.Label>Confirm new password</Form.Label>
+                                <Form.Control
+                                    type="password"
+                                    name="confirmPassword"
+                                    value={confirmPassword}
+                                    onChange={(e) => { checkPassword(e.target.value) }}
+                                    required
+                                />
+                            </Form.Group>
+                            {passwordMessage && <p>{passwordMessage}</p>}
+                            {newPassword === confirmPassword ? <button className="btn" type="submit" > Submit</button> : null}
 
-            </form>
-        </div>
+                        </Row>
+                    </Form>
+                </Row>
+
+            </Container>
+        </Container>
     )
 };
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
 import { FaCheck } from "react-icons/fa";
 import Heading from "../../common/Heading";
@@ -16,7 +16,7 @@ import Heading from "../../common/Heading";
  * @param {*} onViewed - a fucntion from parent component to pass up data when clicked 
  * @returns The `NotificationMessageComponent` functional component is being returned
  */
-const SpecificNotificationsComponent = ({ text, token, notificationId, onViewed }) => {
+const SpecificNotificationsComponent = ({ text, notificationId, onViewed }) => {
 
 
     return (

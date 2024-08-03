@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useCallback } from "react";
+import React, { useContext, useEffect, useCallback } from "react";
 import instance from "../../../scripts/axiosConfig";
 import { useParams } from "react-router-dom";
 import { NotificationsContext } from "../../../context/NotificationsContext";
@@ -18,7 +18,7 @@ const useFetchNotifications = () => {
         setUnviewedAppStatusNotifications, setNotificationsMessage } = useContext(NotificationsContext);
 
     const { token } = useParams();
-    console.log(token);
+
     const fetchNotifications = useCallback(async () => {
 
         // check if authenticated or token is missing 

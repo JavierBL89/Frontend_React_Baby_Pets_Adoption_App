@@ -5,8 +5,7 @@ import TextComponent from "../../../common/TextComponent";
 
 
 /***
- * 
- * 
+ * Component to visually represent adoption application data as a card
  */
 const MyApplicationCard = ({ applicationDate, id, applicationId, petId, price,
     location, onDelete, onUpdate, motherImg, motherBreed, ownerName, status }) => {

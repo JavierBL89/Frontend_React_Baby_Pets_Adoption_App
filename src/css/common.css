@@ -86,6 +86,7 @@ h6 {
     width: 80%;
 }
 
+#reset_password_wrapper label,
 #pet_adoption_wrapper #adoption_form_details label,
 #pet_adoption_wrapper #form_textarea label,
 #list_pet_form label,
@@ -110,7 +111,7 @@ h6 {
 }
 
 .form-control:focus,
-.form-control:active:autoc .form-control:active {
+.form-control:active .form-control:active {
     background: transparent;
 }
 
@@ -189,7 +190,7 @@ h6 {
     color: #F5EDE3;
     font-family: "Roboto";
     width: 90%;
-    padding: 10px auto;
+    padding: 10px 0;
 }
 
 #header_navbar .dropdown-item {
@@ -373,7 +374,7 @@ h6 {
 
 #header_navbar .navbar-nav .col #signUp {
     color: #5A4633;
-    font-weight: 700px;
+    font-weight: 700;
     position: relative;
     top: 35px;
     right: 60px;
@@ -383,6 +384,12 @@ h6 {
 #header_navbar .navbar-nav #forgot_password {
     font-size: 12px;
     margin-top: 17px;
+
+}
+
+#header_navbar .navbar-nav #forgot_password:hover {
+    border-color: transparent;
+
 }
 
 /**** HEADER LOGIN FORM */

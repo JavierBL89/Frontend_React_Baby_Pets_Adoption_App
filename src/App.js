@@ -45,8 +45,7 @@ import Contact from "./components/Contact";
 
 function App() {
   return (
-    // <Router basename="/Frontend_React_Baby_Pets_Adoption_App">
-    <Router>
+    <Router basename="/Frontend_React_Baby_Pets_Adoption_App">
       <ScrollToTop />
 
       <NotificationsProvider >
@@ -58,11 +57,14 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/:token" element={<Home />} />
+                  {/********* AUTH Routes *****/}
                   <Route path="/register" element={<Register />} />
-                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/login/:message" element={<LoginPage />} />
                   <Route path="/loginHeader" element={<LoginHeader />} />
                   <Route path="/auth/reset_password" element={<PasswordReset />} />
                   <Route path="/verify_account" element={<VerifyAccount />} />
+                  <Route path="/verify_account/:message" element={<VerifyAccount />} />
+                  {/********* FEATURES Routes *****/}
                   <Route path="/profile/:token" element={<ProfileDashBoard />} />
                   <Route path="/pet_applications/:petId/:token" element={<PetApplications />} />
                   <Route path="/my_applications/:token" element={<MyApplications />} />
@@ -70,7 +72,7 @@ function App() {
                   <Route path="/list_new_pet/:token" element={<ListNewPet />} />
                   <Route path="/update_pet/:petObjectString/:petListingId/:token" element={<PetUpdate />} />
                   <Route path="/my_listings/:token" element={<MyListings />} />
-
+                  {/********* SITE Routes *****/}
                   <Route path="/data_deletion" element={<DataDeletionInstructions />} />
                   <Route path="/privacy_policy" element={<PrivacyPolicy />} />
                   <Route path="/payment_policy" element={<PaymentPolicy />} />

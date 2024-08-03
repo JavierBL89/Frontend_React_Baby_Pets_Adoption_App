@@ -4,6 +4,7 @@ import { AuthContext } from '../../../context/AuthContext';
 import { Col, Container, Row, Form } from "react-bootstrap";
 import ButtonComponent from "../../common/ButtonComponent";
 import { FeedbackContext } from "../../../context/FeedBackContext";
+import Heading from "../../common/Heading";
 
 /**
  * Login component handles the login functionality
@@ -102,9 +103,7 @@ const LoginPage = () => {
             if (response.status === 200 && response.data) {
                 setPostActionMessage("Welcome back " + response.data.userName)
                 login(response.data.token, response.data.registeredBy, response.data.userName);
-
             }
-
 
         } catch (error) {
 
@@ -126,9 +125,9 @@ const LoginPage = () => {
         <Container id="login_page_wrapper">
             <Container id="login_page_container">
                 <Row >
-                    {/* <Row >
+                    <Row >
                         <Heading tagName="h2" id="login_title" text="Login" />
-                    </Row> */}
+                    </Row>
                     <Row >
                         <Form onSubmit={handleSubmit} id="login_form">
                             <Row >
