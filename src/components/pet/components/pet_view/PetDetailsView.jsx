@@ -109,7 +109,7 @@ const PetDetailsView = () => {
                                         <Col>
                                             <TextComponent
                                                 id="pet_comments_text"
-                                                text={petData.description ? petData.description : "No comments"}
+                                                text={petData.comment ? petData.comment : "No comments"}
                                             />
                                         </Col>
                                     </Row>

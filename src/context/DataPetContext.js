@@ -38,7 +38,7 @@ export const DataPetProvider = ({ children }) => {
      */
     const resetPetsData = useCallback(() => {
         setPetsData([]);
-    }, []);
+    }, [setPetsData, tagsList]);
 
     /**
      * Method to update the current list of pets.
@@ -49,7 +49,7 @@ export const DataPetProvider = ({ children }) => {
      */
     const updateData = useCallback((newData) => {
         setPetsData((prevData) => [...prevData, ...newData]);
-    }, []);
+    }, [setPetsData]);
 
     /**
      * 

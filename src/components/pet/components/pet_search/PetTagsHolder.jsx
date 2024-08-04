@@ -1,5 +1,4 @@
 import React, { useState, useContext, } from "react";
-import petTagsData from "../../../../petTagsData";
 import { Container, Row, Col, Tab, Tabs, Button } from "react-bootstrap";
 import PetTag from "./PetTag";
 import { DataPetContext } from "../../../../context/DataPetContext";
@@ -36,7 +35,7 @@ import ButtonComponent from "../../../common/ButtonComponent";
  * Usage:
  *  <PetTagsHolder petCategory="kitties" />
  */
-const PetTagsHolder = () => {
+const PetTagsHolder = ({ petTagsData }) => {
 
     const [selectedTags, setSelectedTags] = useState([]);
     const [tagsMessage, setTagsMessage] = useState("");
@@ -60,10 +59,10 @@ const PetTagsHolder = () => {
             return;
         }
         // check if new tag is already in the list
-        if (selectedTags.includes(title.toLowerCase())) {
+        if (selectedTags.includes(title)) {
             return;
         } else {
-            setSelectedTags((prevTags) => [...prevTags, title.toLowerCase()]);
+            setSelectedTags((prevTags) => [...prevTags, title]);
         }
     }
 
@@ -76,7 +75,7 @@ const PetTagsHolder = () => {
      * 
      */
     const handleSearch = () => {
-        resetPetsData();    // reset pets data state to empty any existing list
+        resetPetsData([]);    // reset pets data state to empty any existing list
         setTagsList([...selectedTags]);  // set tags list with the chosen tags
     }
 
@@ -138,7 +137,6 @@ const PetTagsHolder = () => {
                                     selectedTags.map((att, attIndex) => {
                                         return (<Col key={attIndex} >
                                             <IoIosRemoveCircle onClick={() => handleRemoveTag(att)} />
-
                                             <p className="selected_tag">{att}</p>
                                         </Col>)
                                     })

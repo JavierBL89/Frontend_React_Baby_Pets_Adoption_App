@@ -160,7 +160,7 @@ h6 {
 }
 
 #post_action_message_wrapper #post_action_message_container {
-    width: 100%;
+    width: 80%;
     background-color: #C19A6B;
     padding: 15px 0 5px;
     text-align: center;
@@ -184,6 +184,10 @@ h6 {
     border-radius: 10px;
     letter-spacing: 0.8px;
     margin-top: 50px;
+}
+
+#notification_message_container {
+    width: 100%;
 }
 
 #only_subscribed_message {
@@ -236,8 +240,10 @@ h6 {
 
 #notification_message_container svg {
     color: #F5EDE3;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     cursor: pointer;
+    position: relative;
+    bottom: 4px;
 }
 
 #post_action_message_holder h6,
@@ -621,6 +627,13 @@ h6 {
         width: 90%;
     }
 
+
+    #notification_message_container svg {
+        position: relative;
+        right: 8px;
+        bottom: 5px;
+    }
+
     /******* FOOTER   ****/
     #footer_navbar {
         position: relative;
@@ -764,9 +777,16 @@ h6 {
     /**** NOTIFIACTIONS */
     #notification_message_container,
     #only_subscribed_message {
-        width: 70%;
+        width: 90%;
         background-color: #6a5b48;
-        padding: 10px 0 5px;
+        padding: 15px;
+    }
+
+    #notification_message_container svg {
+        font-size: 1.6rem;
+        position: relative;
+        left: 5px;
+        bottom: 5px;
     }
 
     /********** ABOUT PAGE */
@@ -845,6 +865,13 @@ h6 {
 
     }
 
+    #notification_message_container svg {
+        font-size: 1.5rem;
+        position: relative;
+        right: 5px;
+        bottom: 5px;
+    }
+
     #post_action_message_holder h6,
     #notification_message_holder h6 {
         font-size: 16px;
@@ -852,8 +879,8 @@ h6 {
 
     #post_action_message_wrapper #post_action_message_container,
     #notification_message_container {
-        width: 95%;
-        padding: 15px 0 5px;
+        width: 80%;
+        padding: 10px;
         background-color: #6a5b48;
 
     }

@@ -42,6 +42,9 @@ const PetApplicationCard = ({ application, id, token, onFetchData, onDelete }) =
 
         <Container id={`pet_application_wrapper_${id}`} className="pet_application_wrapper ">
             <Container id={`pet_application_container_${id}`} className="pet_application_container ">
+                <Row id="application_ref_holder" className="m-0 p-0">
+                    <TextComponent className="m-0 me-1 p-0 pe-4 pb-1 text-end font-italic" text={`ref: ${application.appTracker}`} />
+                </Row>
                 <Row >
                     {/******* Application details *******/}
                     <Col xs={12} md={10}>

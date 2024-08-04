@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Stack, Dropdown } from "react-bootstrap";
 import ImageComponent from "../../../common/ImageComponent";
 import TextComponent from "../../../common/TextComponent";
@@ -19,6 +19,23 @@ const CardList = ({ motherImage, motherBreed, createdOn, price, token,
     birthDate, id, petId, onDelete, onUpdate, petListing, petCreatedOn, petUpdatedOn }) => {
 
     const [viewApplication, setviewApplication] = useState(false);
+    const [category, setCategory] = useState("");
+
+
+    /****
+     * useEffect to set set the category to macth the backend category name 
+     * for the url that retrieves the details of a secific pet.
+     * 
+     * The variable is used for the pet image link
+     */
+    useEffect(() => {
+        if (petListing.pet.category === "cat") {
+            setCategory("kitties");
+        }
+        if (petListing.pet.category === "dog") {
+            setCategory("puppies");
+        }
+    }, [setCategory, petListing]);
 
     /**** 
      * Method toggles the view application accordion.
@@ -29,6 +46,8 @@ const CardList = ({ motherImage, motherBreed, createdOn, price, token,
     const viewToggle = () => {
         setviewApplication(!viewApplication);
     }
+
+    console.log(`/pets/${category}/view/${petListing.pet.id}`);
 
     return (
 
@@ -51,7 +70,9 @@ const CardList = ({ motherImage, motherBreed, createdOn, price, token,
                 <Row className="myPetCard_body">
                     {/******* Mother's Image *******/}
                     <Col xs={12} md={4} className="myPetCard_img_holder">
-                        <ImageComponent src={motherImage} className={""} alt={""} />
+                        <Link to={`/pets/${category}/view/${petListing.pet.id}`} >
+                            <ImageComponent src={motherImage} className={""} alt={`Image of a ${petListing.pet.category}`} />
+                        </Link>
                     </Col>
 
                     {/******* Birth and Status details *******/}

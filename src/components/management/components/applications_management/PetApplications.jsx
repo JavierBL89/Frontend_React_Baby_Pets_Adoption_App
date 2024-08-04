@@ -8,6 +8,7 @@ import ApplicationStatusTabComponent from "./ApplicationStatusTabComponent";
 import { FeedbackContext } from "../../../../context/FeedBackContext";
 import PostActionMessage from "../../../common/PostActionMessage";
 import NotificationMessageComponent from "../../../notifications/components/NotificationMessageComponent";
+import SpecificNotificationsComponent from "../../../notifications/components/SpecificNotificationsComponent";
 
 /***
  * Component atc as core of my_listings page.
@@ -191,6 +192,8 @@ const PetApplications = () => {
     };
 
 
+    console.log(applications);
+
     return (
 
         <Container id="pet_applications_wrapper">
@@ -208,12 +211,11 @@ const PetApplications = () => {
                                 }
                                 return (
                                     message !== null && (
-                                        <NotificationMessageComponent
+                                        <SpecificNotificationsComponent
                                             key={notification.id} // Use a unique identifier for keys
                                             notificationId={notification.id}
                                             applcationId={app.id}
                                             onViewed={handleViewed}
-                                            token={token}
                                             text={message}
                                         />
                                     )

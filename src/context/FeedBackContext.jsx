@@ -40,7 +40,7 @@ const FeedbackProvider = ({ children }) => {
 
         setTimeout(() => {
             setPostActionMessage("")
-        }, 4000);
+        }, 6000);
 
     }
 

@@ -1,14 +1,14 @@
 import React, { useContext, useEffect } from "react";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
 import PetCard from "../pet_listing/PetCard";
-import { useNavigate } from "react-router-dom";
 
 import { DataPetContext } from "../../../../context/DataPetContext";
-import useFetchById from "../../../hooks/data/fetchById";
-import TextComponent from "../../../common/TextComponent";
+
 
 /***
- * 
+ * Component responsible for holding the a list pf pet cards 
+ * and manage the layout by mapping through the list of pets
+ * and display cards of pet by rows and columns
  */
 const PetListingHolder = () => {
 

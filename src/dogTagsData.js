@@ -11,12 +11,10 @@ const petTagsData = [
         items: ["Dublin", "Mayo", "Galway", "Cork", "Donegal"]
     },
     {
-        name: "Color",
-        items: ["beige", "black", "white", "black&white", "stained", "brown", "grey"]
-    },
-    {
-        name: "Furry",
-        items: ["Short", "Large", "Medium"]
+        name: "Mother's Breed",
+        items: ["German Shepherd", "Bulldog", "Labrador", "Siberian Husky", "Poodle",
+            "Chihuahua", "Australian Shepherd"
+        ]
     }
 ];
 

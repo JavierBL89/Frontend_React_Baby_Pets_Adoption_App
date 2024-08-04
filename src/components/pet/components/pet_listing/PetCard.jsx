@@ -82,7 +82,7 @@ const PetCard = ({ img, breed, petId, onView, location, price }) => {
                         </Container>
 
                         {/********** Card body ************/}
-                        <Row className="m-0">
+                        <Row className="mt-2 mb-0">
                             <Col className="pet_card_detail_holder">
                                 <TextComponent text={breed} />
                             </Col>

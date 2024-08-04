@@ -1,7 +1,5 @@
-import React, { useContext, useLocation, useNavigate } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { AuthContext } from "../../../../context/AuthContext";
-import ImageComponent from "../../../common/ImageComponent";
+import React from "react";
+import { Container } from "react-bootstrap";
 
 
 
@@ -15,9 +13,6 @@ import ImageComponent from "../../../common/ImageComponent";
  */
 
 const PetCategory = ({ onClick, title }) => {
-
-    // state for displaying certain info and elements based on authentication conditions
-    const { isAuthenticated } = useContext(AuthContext);
 
 
     return (

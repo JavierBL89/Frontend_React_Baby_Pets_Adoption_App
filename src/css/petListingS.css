@@ -56,9 +56,10 @@ body {
 #pet_tags_container .badge_tag {
     background-color: #5A4633;
     color: #F5EDE3;
-    width: 75%;
+    margin-bottom: 5px;
+    width: fit-content;
     border-radius: 15px;
-    padding: 4px;
+    padding: 4px 20px;
     letter-spacing: 0.8px;
     font-size: 15px;
     cursor: pointer;
@@ -651,6 +652,7 @@ body {
 #update_pet_wrapper textarea {
     width: 90%;
     margin: 0 auto;
+    font-size: 15px;
 }
 
 #update_pet_form small {

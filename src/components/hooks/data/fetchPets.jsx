@@ -42,7 +42,7 @@ const useFetchPets = () => {
     const num_of_columns = 6;                      // Number of items per page
 
     // use DataPetContext to access 'dataPets' & current pet category states
-    const { currentPetCategory, setPetsData, tagsList } = useContext(DataPetContext);
+    const { currentPetCategory, setPetsData, tagsList, setTagsList } = useContext(DataPetContext);
 
     // call usePagination and access the returned values of the new updated pagination state
     const { pages, goToNextPage } = usePagination(currentPetCategory);
@@ -94,7 +94,17 @@ const useFetchPets = () => {
                     // check if result has data or set error message
                     if (result) {
                         const newPets = result.content;
-                        setPetsData(prevPets => append ? [...prevPets, ...newPets] : newPets);
+
+                        // ensure there are not duplicate pets in retreived list
+                        setPetsData(prevPets => {
+                            // store a set of existing pet IDs 
+                            const existingPetIds = new Set(prevPets.map(pet => pet.id));
+                            // filter out any new pets that already exist in prevPets
+                            const filteredNewPets = newPets.filter(pet => !existingPetIds.has(pet.id));
+                            // eturn the updated array
+                            return append ? [...prevPets, ...filteredNewPets] : filteredNewPets;
+                        });
+
                         setTotalPages(result.totalPages);  // this data variable comes on JSON object response provided from Page class in API
                     } else {
                         setMessage("No data returned");
@@ -108,7 +118,7 @@ const useFetchPets = () => {
                 setLoading(false);   // set back to false
             }
         }
-    }, [currentPetCategory, pages, setPetsData, tagsList]);
+    }, [currentPetCategory, pages, setPetsData, tagsList, setTagsList]);
 
     /**
     *  useEffect is only triggered when the 'pages' state is changed from usePagination Hook to make API request
@@ -134,7 +144,7 @@ const useFetchPets = () => {
     };
 
 
-    return { pages, loadMore, message, loading, error, totalPages }; // return constants to be accessed from other parts in application
+    return { pages, loadMore, message, loading, error, totalPages, fetchData }; // return constants to be accessed from other parts in application
 };
 
 export default useFetchPets;

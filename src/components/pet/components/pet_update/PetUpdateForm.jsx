@@ -166,7 +166,7 @@ const PetUpdateForm = () => {
 
                 if (response.status === 200) {
                     setPostActionMessage("Pet has been Updated!" +
-                        "\n You should can review changes on the pet listing.");
+                        "\n You can review changes on the pet details view.");
                     navigate(`/my_listings/${token}`);
                 } else {
                     console.error("Form submission failed:", response.data);

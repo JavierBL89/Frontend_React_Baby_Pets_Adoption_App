@@ -55,6 +55,28 @@ const FormComponent = () => {
         });
     };
 
+    /**
+     * Method handles location's name to ensure proper name format
+     *  with a capital first letter
+     * 
+     * @param {*} e - the event
+     */
+    const handleLocation = (e) => {
+
+        let location = e.target.value;
+        const head = location.slice(0, 1).toUpperCase();;
+        const body = location.slice(1).toLowerCase();
+        location = head + body;   // concat
+
+        const { name } = e.target;
+
+        setFormData({
+            ...formData,
+            [name]: location
+        });
+    };
+
+
     /***
      * Method to set mother image field
      */
@@ -88,9 +110,8 @@ const FormComponent = () => {
         formDataToSend.append('email', formData.email);
         formDataToSend.append('message', formData.message);
         formDataToSend.append('file', formData.file);
-
         formDataToSend.append('category', formData.petCategory);
-        formDataToSend.append('breed', formData.breed);
+        // formDataToSend.append('breed', formData.breed);
         formDataToSend.append('location', formData.location);
         formDataToSend.append('birthMonth', formData.birthMonth);
         formDataToSend.append('birthYear', formData.birthYear);
@@ -182,7 +203,7 @@ const FormComponent = () => {
 
                             <Col xs={8}>
                                 {/******** { pet's breeed } ********/}
-                                <Form.Group controlId="formBreed">
+                                {/* <Form.Group controlId="formBreed">
                                     <Form.Label>Pet's Breed</Form.Label>
                                     <Form.Control
                                         type="text"
@@ -192,7 +213,7 @@ const FormComponent = () => {
                                         placeholder="Will be set as 'Unkwon' if empty"
                                         required
                                     />
-                                </Form.Group>
+                                </Form.Group> */}
                             </Col>
                         </Row>
                         <Row>
@@ -242,7 +263,7 @@ const FormComponent = () => {
                                                 type="text"
                                                 name="location"
                                                 value={formData.location}
-                                                onChange={handleChange}
+                                                onChange={handleLocation}
                                                 placeholder="Galway"
                                                 required
                                             />

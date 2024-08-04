@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useCallback } from "react";
-import LogoutButton from "./auth/components/LogoutButton";
-import { AuthContext } from "../context/AuthContext";
-import { useLocation, useNavigate } from 'react-router-dom'
-import { Container, Row, Col, Stack, Spinner } from "react-bootstrap";
+
+import catTagsData from "../catTagsData";
+import dogTagsData from "../dogTagsData";
+
+import { Container, Row, Stack, Spinner } from "react-bootstrap";
 import PetCategoriesHolder from "./pet/components/pet_categories/PetCategoriesHolder";
 import AdoptionInfoComponent from "./AdoptionInfoComponent";
 import WelcomeComponent from "./WelcomeComponent";
@@ -23,40 +24,30 @@ import TextComponent from "./common/TextComponent";
  * 
  */
 const Home = () => {
-
-    // state for displaying certain info and elements based on authentication conditions
-    const { isAuthenticated, login } = useContext(AuthContext);
-    const { currentPetCategory, petsData, foundDataFlag, setCurrentPetCategory, resetPetsData } = useContext(DataPetContext);
+    // use DataPetContext
+    const { currentPetCategory, petsData, setCurrentPetCategory, resetPetsData, setTagsList } = useContext(DataPetContext);
+    // use useFetchPets hook for fetching pets
     const { loading, message, error, totalPages, loadMore, pages } = useFetchPets();
-
+    // set token on localstorage
     const token = localStorage.getItem("token")
 
-    /***
-    * useEffect resets data to empty on every render
-    */
-    const handleFoundData = () => {
 
-    }
-
-    console.log(token);
     /***
        * useEffect resets data to empty on every render
        */
     useEffect(() => {
         resetPetsData();
-    }, [resetPetsData]);
+    }, [resetPetsData, setTagsList]);
 
     /**
        * Sets category state based on user selection
        * 
        * @params title - the title of the pet category
        */
-    const handleClick = useCallback((title) => {
-
-        resetPetsData();      // reset pets data state from 'useFetchPets' hook when a new category is selected
+    const handleCategory = useCallback((title) => {
         setCurrentPetCategory(title.toLowerCase());  // update category state when user selects a pet category to be passed to PetDataContext
 
-    }, [resetPetsData, setCurrentPetCategory]);
+    }, [setCurrentPetCategory]);
 
 
 
@@ -64,7 +55,7 @@ const Home = () => {
 
         <Stack>
             <WelcomeComponent token={token} />
-            <PetCategoriesHolder handleClick={handleClick} />
+            <PetCategoriesHolder handleClick={handleCategory} />
             <Container >
                 {loading &&
                     <Row id="petListing_spinner_holder">
@@ -77,7 +68,13 @@ const Home = () => {
                 {error && console.log("Error fetching pets: ", { error })}
                 {petsData.length > 0 ? (
                     <Container>
-                        <PetTagsHolder petCategory={currentPetCategory} />
+                        {currentPetCategory === "puppies"
+                            ?
+                            <PetTagsHolder petTagsData={dogTagsData} petCategory={currentPetCategory} />
+                            :
+                            <PetTagsHolder petTagsData={catTagsData} petCategory={currentPetCategory} />
+                        }
+
                         <PetListingHolder />
                         <Row >
                             <button id="load_more_button" onClick={loadMore} disabled={pages[currentPetCategory]?.page >= totalPages - 1}>More Pets</button>
