@@ -19,6 +19,7 @@ const useFetchNotifications = () => {
 
     const { token } = useParams();
 
+
     const fetchNotifications = useCallback(async () => {
 
         // check if authenticated or token is missing 
@@ -29,11 +30,11 @@ const useFetchNotifications = () => {
 
         if (token) {
             try {
-                const response = await instance.get(`/notifications/pending?${token}`);
+                const response = await instance.get(`/notifications/pending?token=${token}`);
                 if (response.status === 200) {
-
                     const result = response.data;
                     if (result) {
+                        // store the 2 diffrente lists of pending notifictions
                         const unviewedListingspNotifications = result.unviewedListingspNotifications || [];
                         const unviewedAppStatusNotifications = result.unviewedAppStatusNotifications || [];
                         setUnviewedAppStatusNotifications(unviewedAppStatusNotifications);
@@ -48,7 +49,6 @@ const useFetchNotifications = () => {
                 console.error('Error fetching notifications:', error);
             }
         } else {
-            console.error("Authentication needed. Form could not be submited!")
             setErrorMessage("Authentication needed. Notification could no be retrieved")
         }
 

@@ -145,7 +145,6 @@ const Login = () => {
                     <Row id="my_applications_spinner_holder">
                         <Spinner animation="border" />
                     </Row>
-
                     :
                     <Row >
                         <Row className="ps-0">
@@ -163,7 +162,6 @@ const Login = () => {
                                         />
                                     </Form.Group>
                                     {emailMessage && <p className="pb-0 mb-0">{emailMessage}</p>}
-
                                 </Row>
 
                                 <Row className="ps-0">
@@ -183,13 +181,12 @@ const Login = () => {
                                 </Row>
                                 <Row id="login_action_holder">
                                     <Col >
-                                        <button type="submit" id="login_submit_button" className="btn" >LogIn!</button>
+                                        <button type="submit" id="login_submit_button" className="btn">LogIn!</button>
                                     </Col>
                                     <Col >
                                         <Link id="signUp" to="/register">SignUp</Link>
-
                                     </Col>
-                                    <a href="#nopath" id="forgot_password" onClick={resetPassword}>Forgot password</a>
+                                    <a href="#reset_password" id="forgot_password" onClick={resetPassword}>Forgot password</a>
                                 </Row>
                             </Form>
                             {message && <p id="login_message">{message}</p>}

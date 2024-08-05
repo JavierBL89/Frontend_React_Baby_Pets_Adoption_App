@@ -242,6 +242,7 @@ const MyApplications = () => {
                                         <MyApplicationCard key={index}
                                             id={index}
                                             applicationId={application.id}
+                                            appTracker={application.appTracker}
                                             status={application.status}
                                             price={application.pet.price}
                                             ownerName={application.pet.ownerName}

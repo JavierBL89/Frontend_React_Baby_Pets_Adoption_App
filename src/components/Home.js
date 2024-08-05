@@ -12,6 +12,7 @@ import { DataPetContext } from "../context/DataPetContext";
 import PetTagsHolder from "./pet/components/pet_search/PetTagsHolder";
 import PetListingHolder from "./pet/components/pet_listing/PetListingHolder";
 import TextComponent from "./common/TextComponent";
+import useFetchNotifications from "./hooks/data/fetchNotifications";
 
 
 /***
@@ -45,9 +46,10 @@ const Home = () => {
        * @params title - the title of the pet category
        */
     const handleCategory = useCallback((title) => {
+        setTagsList([]);
         setCurrentPetCategory(title.toLowerCase());  // update category state when user selects a pet category to be passed to PetDataContext
 
-    }, [setCurrentPetCategory]);
+    }, [setCurrentPetCategory, setTagsList]);
 
 
 

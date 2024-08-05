@@ -155,14 +155,14 @@ h6 {
 #notification_message_holder,
 #only_subscribed_message {
     width: 70%;
-    min-height: 70px;
+    min-height: 60px;
     margin: 40px auto 40px;
 }
 
 #post_action_message_wrapper #post_action_message_container {
     width: 80%;
     background-color: #C19A6B;
-    padding: 15px 0 5px;
+    padding: 15px 0px;
     text-align: center;
     border-radius: 10px;
     margin-top: 50px;
@@ -179,7 +179,7 @@ h6 {
 #only_subscribed_message {
     width: 70%;
     background-color: #6a5b48;
-    padding: 15px 0 5px;
+    padding: 15px 0;
     text-align: center;
     border-radius: 10px;
     letter-spacing: 0.8px;
@@ -194,7 +194,6 @@ h6 {
     color: #F5EDE3;
     font-family: "Roboto";
     width: 90%;
-    padding: 10px 0;
 }
 
 #header_navbar .dropdown-item {
@@ -396,6 +395,10 @@ h6 {
 #header_navbar .navbar-nav #forgot_password:hover {
     border-color: transparent;
 
+}
+
+#my_applications_spinner_holder {
+    text-align: center;
 }
 
 /**** HEADER LOGIN FORM */

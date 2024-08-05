@@ -8,12 +8,15 @@ import TextComponent from "../../../common/TextComponent";
  * Component to visually represent adoption application data as a card
  */
 const MyApplicationCard = ({ applicationDate, id, applicationId, petId, price,
-    location, onDelete, onUpdate, motherImg, motherBreed, ownerName, status }) => {
+    location, onDelete, appTracker, motherImg, motherBreed, ownerName, status }) => {
 
     return (
 
         <Container id={`application_wrapper_${id}`} className="applicationCard_wrapper">
             <Container id={`application_container_${id}`} className="applicationCard_container">
+                <Row >
+                    <TextComponent className="m-0 text-end pe-3 font-italic" text={`ref: ${appTracker}`} />
+                </Row>
                 <Row >
                     {/******* Mother's Image *******/}
                     <Col xs={12} md={5} className="application_img_holder">

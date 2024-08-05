@@ -47,7 +47,6 @@ const CardList = ({ motherImage, motherBreed, createdOn, price, token,
         setviewApplication(!viewApplication);
     }
 
-    console.log(`/pets/${category}/view/${petListing.pet.id}`);
 
     return (
 

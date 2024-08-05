@@ -2,10 +2,8 @@ import React, { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { AuthContext } from "../../../../context/AuthContext";
-import { DataPetContext } from "../../../../context/DataPetContext";
 import { Container, Row, Col } from "react-bootstrap";
 import ImageComponent from "../../../common/ImageComponent";
-import ButtonComponent from "../../../common/ButtonComponent";
 import TextComponent from "../../../common/TextComponent";
 import useFetchById from "../../../hooks/data/fetchById";
 import PetAdoptionComponent from "../pet_adoption/PetAdoptionComponent";
@@ -27,7 +25,6 @@ import PostActionMessage from "../../../common/PostActionMessage";
 const PetDetailsView = () => {
 
     const { petId, currentPetCategory } = useParams();
-    const [puta, setPuta] = useState("");
 
     const { isAuthenticated, userName } = useContext(AuthContext);
     const { postActionMessage, setPostActionMessage } = useContext(FeedbackContext);

@@ -48,7 +48,7 @@ const useFetchById = (petId) => {
 
         setLoading(true);  // set state to true
         setDataReadyForRedirect(false);  // set the redirection flag
-        console.log(currentPetCategory);
+
         try {
             // url appropiate thr appropiate target endpoint
             const url = `/pets/${currentPetCategory}/view/${petId}`;
