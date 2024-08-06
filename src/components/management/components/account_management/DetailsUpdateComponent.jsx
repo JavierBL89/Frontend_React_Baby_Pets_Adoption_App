@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Container, Form, Row } from 'react-bootstrap';
 import Heading from "../../../common/Heading";
 import instance from "../../../../scripts/axiosConfig";
@@ -21,7 +21,8 @@ import { FeedbackContext } from "../../../../context/FeedBackContext";
  */
 const DetailsUpdateComponent = ({ onLoad }) => {
 
-    const [postActionMessage, setPostActionMessage] = useState(FeedbackContext)
+    const { removeSessionData } = useState(FeedbackContext);
+    const { setPostActionMessage } = useContext(FeedbackContext)
 
     const [message, setMessage] = useState(false);   // failedMessage state
     const [name, setName] = useState("");
@@ -110,6 +111,7 @@ const DetailsUpdateComponent = ({ onLoad }) => {
                 const response = await instance.delete(`/account_management/delete_user?token=${token}`);
 
                 if (response.status === 200) {
+                    removeSessionData(); // remove current session data
                     navigate("/")
                 }
                 else {

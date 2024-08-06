@@ -38,12 +38,10 @@ const Register = () => {
      */
     const checkPassword = (input) => {
         setConfirmPassword(input)
-        if (input !== password) {
-            setPasswordMessage("Passwords do not match");
-            return;
-        } else {
-            setPasswordMessage("Passwords match");
+        if (input.trim() !== password.trim()) {
+            return false;
         }
+        return true;
     }
 
     /***
@@ -53,13 +51,11 @@ const Register = () => {
      */
     const checkEmail = (input) => {
         setConfirmEmail(input)
-        if (input !== confirmEmail) {
-            setConfirmEmailMessage("Email addresses do not match!");
-            return;
-        } else {
-            setEmailMessage("Match!");
-
+        if (input.trim() !== confirmEmail.trim()) {
+            return false;
         }
+
+        return true;
     }
 
     /**
@@ -77,8 +73,21 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault(); // prevents the default form submition
 
-        checkPassword(); // check if the password and re-entered password match
-        checkEmail()     // check if the email address and confrim email address match
+
+        const isPasswordValid = checkPassword(password, confirmPassword); // check if the password and re-entered password match
+        const isEmailValid = checkEmail(email, confirmEmail); // check if the email address and confrim email address match
+
+        if (!isPasswordValid) {
+            setPasswordMessage("Passwords do not match");
+
+            return;
+        }
+
+        if (!isEmailValid) {
+            setConfirmEmailMessage("Email addresses do not match!");
+
+            return;
+        }
 
         try {
 
@@ -96,7 +105,6 @@ const Register = () => {
             }
 
         } catch (error) {
-
             // check if error response exists
             if (error.response && error.response.data) {
                 // set the message state with the error response data
@@ -119,7 +127,7 @@ const Register = () => {
             <Container id="register_form_container">
 
                 <Row id="register_form_holder">
-                    <Row >{message && <p>{message}</p>}</Row>
+
                     <Form onSubmit={handleSubmit} id="reg_form">
 
                         <Row id="reg_user_details_holder" className='reg_form_details_holder'>
@@ -165,7 +173,7 @@ const Register = () => {
                                         required
                                     />
                                 </Form.Group>
-                                {emailMessage && <p>{emailMessage}</p>}
+                                <small className='ms-2'>{emailMessage}</small>
 
                             </Col>
                             <Col>
@@ -180,7 +188,7 @@ const Register = () => {
                                         required
                                     />
                                 </Form.Group>
-                                {confirmEmailMessage && <p>{confirmEmailMessage}</p>}
+                                <small className='ms-2'>{confirmEmailMessage}</small>
 
                             </Col>
 
@@ -198,7 +206,7 @@ const Register = () => {
                                         required
                                     />
                                 </Form.Group>
-                                {password && <p>{passwordMessage}</p>}
+                                <small className='ms-2'>{passwordMessage}</small>
 
                             </Col>
                             <Col>
@@ -211,18 +219,16 @@ const Register = () => {
                                         value={confirmPassword}
                                         onChange={(e) => setConfirmPassword(e.target.value)}
                                         required
-
                                     />
                                 </Form.Group>
-                                {confirmPasswordMessage && <p>{confirmPasswordMessage}</p>}
+                                <small className='ms-2'>{confirmPasswordMessage}</small>
 
                             </Col>
 
                         </Row>
+                        <Row > <p className='text-center'>{message}</p></Row>
                         <Row >
-
                             <button type="submit" id="reg_submit_button" className="btn btn-primary" >Go!</button>
-
                         </Row>
                     </Form>
                 </Row>

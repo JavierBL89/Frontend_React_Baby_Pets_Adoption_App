@@ -60,6 +60,7 @@ const AuthProvider = ({ children }) => {
     const login = (token, registeredBy, userName) => {
 
         localStorage.setItem('token', token);
+        localStorage.setItem('userName', userName);
         setIsAuthenticated(true);
         setRegisteredBy(registeredBy);
         setUserName(userName);
@@ -67,10 +68,20 @@ const AuthProvider = ({ children }) => {
     };
 
     /**
-     * Logout function to remove the token from localStorage and update the authentication state
+     * Logout function to remove the token from localStorage 
+     * and update the authentication state when user logs out
      */
     const logout = () => {
+        removeSessionData();
+    };
+
+
+    /**
+     * Method  to remove the token from localStorage and update the authentication state
+     */
+    const removeSessionData = () => {
         localStorage.removeItem("token");
+        localStorage.removeItem("userName");
         setIsAuthenticated(false);   // reset state to false
         setRegisteredBy("");  // clear state
         setUserName("");  // clear state
@@ -81,7 +92,7 @@ const AuthProvider = ({ children }) => {
     return (
         <AuthContext.Provider value={{
             isAuthenticated, login, logout, setRegisteredBy, registeredBy,
-            setUserName, userName
+            setUserName, userName, removeSessionData
         }}>
             {children}
         </AuthContext.Provider>

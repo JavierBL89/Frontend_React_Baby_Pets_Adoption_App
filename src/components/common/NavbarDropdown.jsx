@@ -21,10 +21,12 @@ import { Link } from "react-router-dom";
 */
 const NavbarDropDown = ({ id }) => {
 
-    const { isAuthenticated, logout, userName } = useContext(AuthContext);
+    const { logout } = useContext(AuthContext);
+
     const { unviewedListingsNotifications, unviewedAppStatusNotifications } = useContext(NotificationsContext);
 
     const token = localStorage.getItem('token');
+    const userName = localStorage.getItem("userName");
 
     return (
         <NavDropdown

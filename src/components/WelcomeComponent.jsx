@@ -5,6 +5,8 @@ import Heading from "./common/Heading";
 import { NotificationsContext } from "../context/NotificationsContext";
 import useFetchNotifications from "./hooks/data/fetchNotifications";
 import NotificationMessageComponent from "./notifications/components/NotificationMessageComponent";
+import { FeedbackContext } from "../context/FeedBackContext";
+import PostActionMessage from "./common/PostActionMessage";
 
 
 /***
@@ -18,24 +20,30 @@ const WelcomeComponent = () => {
     const { isAuthenticated } = useContext(AuthContext);
     const { notificationsMessage } = useContext(NotificationsContext);
 
+    const { welcomeMessage } = useContext(FeedbackContext);
+
     useFetchNotifications();
 
     return (
         <Container >
             <Container >
                 <Row id="notifications_space">
+
                     {!isAuthenticated ?
                         (
                             <Container id="sign_in_holder">
                                 <Heading tagName="h6" id="sign_in_messsage" text="Sign in to access adoption services !" />
                             </Container>
                         )
-                        : notificationsMessage ?
-                            (
-                                <NotificationMessageComponent className="show" />
-                            )
-                            :
-                            null
+                        : welcomeMessage ? (
+                            <PostActionMessage text={welcomeMessage} />
+                        )
+                            : notificationsMessage ?
+                                (
+                                    <NotificationMessageComponent className="show" />
+                                )
+                                :
+                                null
                     }
                 </Row>
             </Container>

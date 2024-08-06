@@ -21,7 +21,6 @@ const Login = () => {
 
     // set user state after successfull login
     const { login } = useContext(AuthContext);
-    const { setPostActionMessage } = useContext(FeedbackContext)
 
     const [credentials, setCredentials] = useState({ email: '', password: '' });
 
@@ -117,7 +116,6 @@ const Login = () => {
 
             // check if response exists
             if (response.status === 200 && response.data) {
-                setPostActionMessage("Welcome back " + response.data.userName)
                 login(response.data.token, response.data.registeredBy, response.data.userName);
             }
 

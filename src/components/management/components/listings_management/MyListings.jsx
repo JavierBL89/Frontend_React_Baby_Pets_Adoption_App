@@ -124,6 +124,7 @@ const MyListings = () => {
                     setPostActionMessage("Pet listing has been sucessfully removed.") // store post-action message
                     setListings([]);   // reset to empty before every render
                     fetchListingsData();    // reload page with new data
+                    window.scrollTo(0, 0);
                 } else {
                     console.error("Item could not be removed:", response.data);
                     setMessage("A server error occured and pet could not be removed.Please try later or contact admin to inform about the problem.")

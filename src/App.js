@@ -59,6 +59,7 @@ function App() {
                   <Route path="/:token" element={<Home />} />
                   {/********* AUTH Routes *****/}
                   <Route path="/register" element={<Register />} />
+                  <Route path="/login" element={<LoginPage />} />
                   <Route path="/login/:message" element={<LoginPage />} />
                   <Route path="/loginHeader" element={<LoginHeader />} />
                   <Route path="/auth/reset_password" element={<PasswordReset />} />
