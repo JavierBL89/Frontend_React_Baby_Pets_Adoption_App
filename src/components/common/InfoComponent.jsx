@@ -28,50 +28,39 @@ used for: */
 
     return (
         <Container id={`${id}_wrapper`} className="" >
-
             <Container id={`${id}_container`} className="" >
                 <Heading tagName="h4" id={`${id}_heading`} className="" text={title} />
-
                 <Container id={`${id}_holder`} className="info_holder" >
-
                     {
                         sections.map((section, sectionIndex) => {
                             return (
                                 <div key={sectionIndex}>
                                     {section.heading && (
-                                        <Heading key={`${sectionIndex}-heading`} tagName="h4" id="" text={section.heading} ></Heading>
+                                        <Heading key={`${sectionIndex}-heading`} tagName="h4" text={section.heading} />
                                     )}
-                                    {
-                                        section.content && (
-                                            <TextComponent key={`${sectionIndex}-content`} type="h4" id="" className="" text={section.content}></TextComponent>
-                                        )
-                                    }
-                                    {
-                                        section.section && section.section.map((point, pointIndex) => {
-
-                                            return (
-                                                <div key={pointIndex}>
-                                                    <Heading key={`${sectionIndex}-subheading`} type="h5" id="" text={point.heading}></Heading>
-                                                    <ul>
-                                                        {
-                                                            point.bulletPoints.map((bullet, bulletIndex) => {
-                                                                return (<li key={bulletIndex}>{bullet}</li>)
-                                                            })
-                                                        }
-                                                    </ul>
-                                                </div>
-                                            )
-                                        }
-                                        )
-                                    }
-                                </div >
-                            )
+                                    {section.content && (
+                                        <TextComponent key={`${sectionIndex}-content`} tagName="div" text={section.content} />
+                                    )}
+                                    {section.section && section.section.map((point, pointIndex) => {
+                                        return (
+                                            <div key={pointIndex}>
+                                                <Heading key={`${sectionIndex}-subheading`} tagName="h5" text={point.heading} />
+                                                <ul>
+                                                    {point.bulletPoints.map((bullet, bulletIndex) => (
+                                                        <li key={bulletIndex}>{bullet}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            );
                         })
                     }
                 </Container>
-            </Container >
+            </Container>
         </Container>
-    )
+    );
 };
 
 export default InfoComponent;

@@ -22,7 +22,17 @@ const WelcomeComponent = () => {
 
     const { welcomeMessage } = useContext(FeedbackContext);
 
-    useFetchNotifications();
+    const { fetchNotifications } = useFetchNotifications();
+
+    /****
+     * Fecth notifications on every render only when user is authenticated
+     */
+    useEffect(() => {
+        const t = localStorage.getItem('token');
+        if (t) {
+            fetchNotifications();
+        }
+    }, [isAuthenticated, fetchNotifications]);
 
     return (
         <Container >

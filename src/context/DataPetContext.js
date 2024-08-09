@@ -52,7 +52,7 @@ export const DataPetProvider = ({ children }) => {
     }, [setPetsData]);
 
     /**
-     * 
+     * Pass down states
      */
     const contextValue = useMemo(() => ({
         petsData, currentPetCategory, setCurrentPetCategory,

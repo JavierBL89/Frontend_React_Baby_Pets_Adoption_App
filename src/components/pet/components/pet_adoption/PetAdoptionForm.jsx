@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Form, Row, Col } from 'react-bootstrap';
 import Heading from "../../../common/Heading";
 import instance from "../../../../scripts/axiosConfig";
-import { useNavigate } from "react-router-dom";
 import TextComponent from "../../../common/TextComponent";
-import ButtonComponent from "../../../common/ButtonComponent";
 import { DataPetContext } from "../../../../context/DataPetContext";
 import { FeedbackContext } from "../../../../context/FeedBackContext";
 
@@ -41,7 +39,7 @@ const PetAdoptionForm = ({ petId, userName, onSuccessSubmit }) => {
     const [formData, setFormData] = useState({
         name: '',
         location: '',
-        comment: '',
+        comments: '',
         token: '',   // current session token neede for authentication
         petId: '',   // petId needed on API for database operations
         petCategory: '',   // petId needed on API for database operations
@@ -86,7 +84,7 @@ const PetAdoptionForm = ({ petId, userName, onSuccessSubmit }) => {
 
         const formDataToSend = new FormData();
         formDataToSend.append('location', formData.location);
-        formDataToSend.append('comment', formData.comment);
+        formDataToSend.append('comment', formData.comments);
         formDataToSend.append('token', token.trim());
         formDataToSend.append('petId', petId);
         formDataToSend.append('petCategory', formData.petCategory);
@@ -190,8 +188,8 @@ const PetAdoptionForm = ({ petId, userName, onSuccessSubmit }) => {
                         <Form.Label>Some other details about you to make you stand out!</Form.Label>
                         <Form.Control
                             as="textarea"
-                            name="comment"
-                            value={formData.comment}
+                            name="comments"
+                            value={formData.comments}
                             onChange={handleChange}
                             placeholder=""
                         />

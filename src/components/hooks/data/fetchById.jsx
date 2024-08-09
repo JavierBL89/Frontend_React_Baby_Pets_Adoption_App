@@ -4,7 +4,6 @@ import { DataPetContext } from "../../../context/DataPetContext";
 import { useParams } from "react-router-dom";
 
 
-
 /**
  * Custom Hook makes API GET request to retrieve a pet by its ID.
  *
@@ -23,21 +22,19 @@ const useFetchById = (petId) => {
 
     // use DataPetContext to access states for pet search and management 
     const { setDataReadyForRedirect } = useContext(DataPetContext);
-    const [petData, setPetData] = useState("");       // state for error messages
-
-    const [loading, setLoading] = useState(false);  // state used for feedback or UX purposes
-    const [error, setError] = useState("");       // state for error messages
 
     const { currentPetCategory } = useParams();
+
+    const [petData, setPetData] = useState("");       // state for error messages
+    const [loading, setLoading] = useState(false);  // state used for feedback or UX purposes
+    const [error, setError] = useState("");       // state for error messages
 
     //const currentPetCategory = localStorage.getItem('currentPetCategory');
     const fetchPet = useCallback(async () => {
 
-
         // check if id is null or empty and exit function
         if (!petId) {
             console.error("'petId' is empty or null");
-
             return;
         }
 
@@ -58,7 +55,6 @@ const useFetchById = (petId) => {
 
             // check if status ok or report error
             if (response && response.status === 200) {
-
                 const result = response.data;    // grab response
                 if (result) {
                     setPetData(result);
@@ -84,7 +80,6 @@ const useFetchById = (petId) => {
      */
     useEffect(() => {
         if (petId) {
-
             fetchPet();
         }
     }, [petId, fetchPet]);

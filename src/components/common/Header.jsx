@@ -29,40 +29,28 @@ const Header = () => {
     return (
         <Navbar id="header_navbar" collapseOnSelect sticky="top" expand="lg" className="">
             <Container className="pe-3">
-                <Navbar.Brand id="logo_nav" href="#">
+                <Navbar.Brand id="logo_nav">
                     <Link id="logo_nav" to={`/${token}`} className="nav-link">
                         <Container id="logo_nav_holder" />
                     </Link>
-
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         {/**  Nav Links **/}
-                        {token ?
-                            <Link id="home_link_nav" to={`/${token}`} className="nav-link">
-                                Main
-                            </Link>
-                            :
-                            <Link id="home_link_nav" to={`/}`} className="nav-link">
-                                Main
-                            </Link>
-                        }
+                        <Link id="home_link_nav" to={`/${token || ''}`} className="nav-link">
+                            Main
+                        </Link>
                         { // condition to display different links
                             !isAuthenticated ? (
-                                <>
-                                    <LogInDropDown id="signIn_button" />
-                                </>
-
+                                <LogInDropDown id="signIn_button" />
                             ) : (
                                 <NavbarDropDown id="account_dropdown" />
-
                             )
                         }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-
         </Navbar>
     )
 };

@@ -1,5 +1,5 @@
 //
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext, useCallback } from 'react';
 import { jwtDecode } from 'jwt-decode'; // Correct import
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -71,22 +71,28 @@ const AuthProvider = ({ children }) => {
      * Logout function to remove the token from localStorage 
      * and update the authentication state when user logs out
      */
-    const logout = () => {
-        removeSessionData();
-    };
+    const logout = useCallback(() => {
+        navigate("/")
+        setRegisteredBy("");  // clear state
+        setUserName("");  // clear state
+        localStorage.removeItem('token');
+        localStorage.removeItem('userName');
+        setIsAuthenticated(false);   // reset state to false
+    }, [setRegisteredBy, setUserName, setIsAuthenticated, navigate]);
 
 
     /**
      * Method  to remove the token from localStorage and update the authentication state
      */
     const removeSessionData = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("userName");
-        setIsAuthenticated(false);   // reset state to false
         setRegisteredBy("");  // clear state
         setUserName("");  // clear state
-        navigate("/"); // redirect to home page after successful logout
+        localStorage.removeItem('token');
+        localStorage.removeItem('userName');
+        setIsAuthenticated(false);   // reset state to false
     };
+
+
 
     // pass the authentication state and functions to the component tree
     return (

@@ -128,7 +128,6 @@ const FormComponent = () => {
         if (token) {
 
             try {
-                console.log(formData.price);
 
                 const response = await instance.post('/pets/list_pet', formDataToSend, {
                     headers: {
@@ -144,6 +143,8 @@ const FormComponent = () => {
                 } else {
                     console.error("Form submission failed:", response.data);
                     setMessage("Form could not be submited. A server error occured. Please try again or contact admin to inform about the problem. ")
+                    setLoading(false);
+
                 }
             } catch (error) {
                 setMessage("Error submitting form. Please check the form fields and ensure you enter valid data.")
@@ -154,6 +155,7 @@ const FormComponent = () => {
         } else {
             setMessage("Authentication needed. Form could not be submited!")
         }
+        setLoading(false);
 
     };
 

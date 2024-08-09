@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { NotificationsContext } from "../../../context/NotificationsContext";
 
 
-
 /**
  * Custom Hook makes API GET request to retrieve notifications.
  *
@@ -13,18 +12,17 @@ import { NotificationsContext } from "../../../context/NotificationsContext";
  * @returns notifications and other useful states to be used across other modules
  */
 const useFetchNotifications = () => {
+    const { isAuthenticated } = useContext(NotificationsContext);
 
     const { setUnviewedListingsNotifications, setErrorMessage,
         setUnviewedAppStatusNotifications, setNotificationsMessage } = useContext(NotificationsContext);
 
-    const { token } = useParams();
-
+    const token = localStorage.getItem('token');
 
     const fetchNotifications = useCallback(async () => {
 
-        // check if authenticated or token is missing 
+        // early exit if   token is missing 
         if (!token) {
-            console.error("User not autthenticated or token is missing");
             return;
         }
 
@@ -37,10 +35,19 @@ const useFetchNotifications = () => {
                         // store the 2 diffrente lists of pending notifictions
                         const unviewedListingspNotifications = result.unviewedListingspNotifications || [];
                         const unviewedAppStatusNotifications = result.unviewedAppStatusNotifications || [];
-                        setUnviewedAppStatusNotifications(unviewedAppStatusNotifications);
-                        setUnviewedListingsNotifications(unviewedListingspNotifications);
+
+                        // filter out notifications unviewed Application notifications where status is not pending
+                        const filterUnviewedAppStatusNotifications = unviewedAppStatusNotifications.filter(notification => notification.status !== 'Pending');
+                        // filter out notifications where applicantId does not match senderId
+                        const filteredUnviewedListingspNotifications = unviewedListingspNotifications;
+
+                        // set the filtered notifications to state
+                        setUnviewedListingsNotifications(filteredUnviewedListingspNotifications);
+                        setUnviewedAppStatusNotifications(filterUnviewedAppStatusNotifications);
+
+                        // set amount of notifications message for user
                         setNotificationsMessage("You have " +
-                            (unviewedListingspNotifications.length + unviewedAppStatusNotifications.length)
+                            (filteredUnviewedListingspNotifications.length + filterUnviewedAppStatusNotifications.length)
                             + " new notifications")
                     }
 
@@ -51,7 +58,6 @@ const useFetchNotifications = () => {
         } else {
             setErrorMessage("Authentication needed. Notification could no be retrieved")
         }
-
     }, [token, setErrorMessage, setUnviewedListingsNotifications,
         setUnviewedAppStatusNotifications, setNotificationsMessage]);
 
@@ -67,7 +73,7 @@ const useFetchNotifications = () => {
         fetchNotifications();
     }, [token, fetchNotifications]);
 
-    return {};
+    return { fetchNotifications };
 
 };
 

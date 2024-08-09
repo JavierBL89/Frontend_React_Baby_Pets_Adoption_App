@@ -1,5 +1,4 @@
 import React from "react";
-import Heading from "./common/Heading";
 import InfoComponent from "./common/InfoComponent";
 import { Container } from "react-bootstrap";
 

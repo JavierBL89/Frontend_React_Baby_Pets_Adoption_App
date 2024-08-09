@@ -62,6 +62,7 @@ const ProfileDashBoard = () => {
 
     return (
         <Container id="profile_dashboard_wrapper" className="">
+
             <Container id="profile_dashboard_container" className="">
 
                 { /*************** Post-action Feedback message  *********************/}
@@ -80,20 +81,27 @@ const ProfileDashBoard = () => {
                     </Container>
                 </Row>
 
+
                 { /*************** dashboard options component  *********************/}
                 <Row>
                     <DashBoardTabComponent onTabSelect={handleTabSelection} />
                 </Row>
-                <Row>
-                    {myDetails &&
-                        <DetailsUpdateComponent />
-                    }
-                    {emailChange &&
-                        <EmailUpdateComponent onLoad={setLoading} />
-                    }
-                </Row>
+                { /************ LOADING SPINNER  ************/}
+                {loading ?
+                    <Row id="my_applications_spinner_holder">
+                        <Spinner animation="border" />
+                    </Row>
+                    :
+                    <Row>
+                        {myDetails &&
+                            <DetailsUpdateComponent onLoad={setLoading} />
+                        }
+                        {emailChange &&
+                            <EmailUpdateComponent onLoad={setLoading} />
+                        }
+                    </Row>
 
-
+                }
             </Container>
         </Container >
     );

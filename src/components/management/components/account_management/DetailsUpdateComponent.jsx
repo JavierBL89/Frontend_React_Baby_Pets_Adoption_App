@@ -5,6 +5,7 @@ import instance from "../../../../scripts/axiosConfig";
 import { useNavigate } from "react-router-dom";
 import TextComponent from "../../../common/TextComponent";
 import { FeedbackContext } from "../../../../context/FeedBackContext";
+import { AuthContext } from "../../../../context/AuthContext";
 
 
 
@@ -21,14 +22,17 @@ import { FeedbackContext } from "../../../../context/FeedBackContext";
  */
 const DetailsUpdateComponent = ({ onLoad }) => {
 
-    const { removeSessionData } = useState(FeedbackContext);
+    const { logout } = useState(AuthContext);
     const { setPostActionMessage } = useContext(FeedbackContext)
 
     const [message, setMessage] = useState(false);   // failedMessage state
+
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
     const [location, setLocation] = useState("");
+
     const navigate = useNavigate();
+
     var token = localStorage.getItem('token');  // grab current token from locat storage
 
 
@@ -80,10 +84,10 @@ const DetailsUpdateComponent = ({ onLoad }) => {
                     window.scrollTo(0, 0);
                     clearDataInput()
                 }
+
                 else {
                     console.error("Form submission failed:", response.data);
-                    setMessage("Form could not be submited. A server error occured. Please try again or contact admin to inform about the problem. ")
-                    setMessage(true)
+                    setMessage("Form could not be submited. A server error occured. Please try again or contact admin to inform about the problem. ");
                 }
             } catch (error) {
                 console.error('Something went wrong! Error submitting form:', error.message);
@@ -102,7 +106,7 @@ const DetailsUpdateComponent = ({ onLoad }) => {
     const handleUserProfileDelete = async () => {
 
         if (token) {
-
+            onLoad(true);
             setMessage(false);
 
             try {
@@ -111,21 +115,29 @@ const DetailsUpdateComponent = ({ onLoad }) => {
                 const response = await instance.delete(`/account_management/delete_user?token=${token}`);
 
                 if (response.status === 200) {
-                    removeSessionData(); // remove current session data
-                    navigate("/")
+                    onLoad(false);
+                    logout(); // remove current session data
+                    navigate('/'); // redirect to home page after successful logout
+
+                } else if (response.status === 403) {
+                    onLoad(false);
+                    setPostActionMessage("User not recognisez. Please login or signUp");
+                    window.scrollTo(0, 0);
                 }
                 else {
-                    console.error("Form submission failed:", response.data);
-                    setMessage("Form could not be submited. A server error occured. Please try again or contact admin to inform about the problem. ")
-                    setMessage(true)
+                    console.error("Error:", response.data);
+                    window.scrollTo(0, 0);
                 }
+                onLoad(false);
+
             } catch (error) {
                 console.error('Something went wrong! Error submitting form:', error.message);
             }
         } else {
             setMessage("Authentication needed. Form could not be submited!")
         }
-
+        onLoad(false);
+        window.scrollTo(0, 0);
     }
 
 
@@ -138,10 +150,11 @@ const DetailsUpdateComponent = ({ onLoad }) => {
         setName("");
         setLastName("");
         setLocation("");
-
     };
+
     return (
         <Container id="personal_details_update_wrapper">
+
             <Container className="personal_details_update_container">
                 <Heading
                     tagName="h6"
@@ -221,7 +234,6 @@ const DetailsUpdateComponent = ({ onLoad }) => {
                     }
                 </Row>
             </Container >
-
         </Container >
     )
 

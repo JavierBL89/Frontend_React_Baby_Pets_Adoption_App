@@ -21,7 +21,7 @@ import ListNewPet from "../src/components/pet/components/pet_creation/ListNewPet
 import MyListings from "../src/components/management/components/listings_management/MyListings";
 import MyApplications from "../src/components/management/components/applications_management/MyApplications";
 import PetApplications from "../src/components/management/components/applications_management/PetApplications";
-import PetUpdate from "../src/components/pet/components/pet_update/PetUpdate";
+import PetUpdate from "./components/pet/components/pet_update/PetUpdate.jsx";
 
 import "./css/petListings.css";
 import "./css/forms.css";
@@ -41,9 +41,9 @@ import Services from "./components/Services";
 import Contact from "./components/Contact";
 
 
-
-
 function App() {
+
+
   return (
     <Router basename="/Frontend_React_Baby_Pets_Adoption_App">
       <ScrollToTop />

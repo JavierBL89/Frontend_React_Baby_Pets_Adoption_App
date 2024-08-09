@@ -13,7 +13,7 @@ import { FeedbackContext } from "../../../../context/FeedBackContext";
 
  * @returns  `PetAdoptionForm` component 
  */
-const ViewApplicationComponent = ({ application, status, comments, applicationId, onFetchData, token }) => {
+const ViewApplicationComponent = ({ application, comments, status, applicationId, onFetchData, token }) => {
 
     const { postActionMessage, setPostActionMessage } = useContext(FeedbackContext);  // get global message from FeedbackContext
 

@@ -1,15 +1,11 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../../../context/AuthContext";
-import { Col, Container, Row } from "react-bootstrap";
+import React from "react";
+import { Container, Row } from "react-bootstrap";
 import PetUpdateForm from "./PetUpdateForm";
 
 /***
- * 
+ * Coponent as main core for PetUpdate section
  */
-
 const PetUpdate = () => {
-
-    const { isAuthenticated } = useContext(AuthContext);
 
     return (
         <Container id="update_pet_wrapper">
@@ -17,7 +13,6 @@ const PetUpdate = () => {
 
                 <Row>
                     <PetUpdateForm />
-
                 </Row>
             </Container>
         </Container>

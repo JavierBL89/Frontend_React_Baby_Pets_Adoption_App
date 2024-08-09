@@ -36,8 +36,10 @@ const FeedbackProvider = ({ children }) => {
     }, []);
 
 
+    /***
+     * Clear message after 6 seconds
+     */
     const clearMessage = () => {
-
         setTimeout(() => {
             setPostActionMessage("")
         }, 6000);
